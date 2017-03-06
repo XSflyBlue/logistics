@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.logistics.dao.KnowledgeMapper">
+  <resultMap id="BaseResultMap" type="com.logistics.model.Knowledge">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Title" jdbcType="VARCHAR" property="title" />
+    <result column="[Content]" jdbcType="VARCHAR" property="content" />
+    <result column="Author" jdbcType="VARCHAR" property="author" />
+    <result column="IssueDate" jdbcType="TIMESTAMP" property="issuedate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Title, [Content], Author, IssueDate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_knowledge
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_knowledge
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.logistics.model.Knowledge">
+    insert into tb_knowledge (ID, Title, [Content], 
+      Author, IssueDate)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{author,jdbcType=VARCHAR}, #{issuedate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.model.Knowledge">
+    insert into tb_knowledge
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="title != null">
+        Title,
+      </if>
+      <if test="content != null">
+        [Content],
+      </if>
+      <if test="author != null">
+        Author,
+      </if>
+      <if test="issuedate != null">
+        IssueDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="issuedate != null">
+        #{issuedate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.model.Knowledge">
+    update tb_knowledge
+    <set>
+      <if test="title != null">
+        Title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        [Content] = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        Author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="issuedate != null">
+        IssueDate = #{issuedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.model.Knowledge">
+    update tb_knowledge
+    set Title = #{title,jdbcType=VARCHAR},
+      [Content] = #{content,jdbcType=VARCHAR},
+      Author = #{author,jdbcType=VARCHAR},
+      IssueDate = #{issuedate,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

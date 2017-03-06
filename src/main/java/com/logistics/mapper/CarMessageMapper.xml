@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.logistics.dao.CarMessageMapper">
+  <resultMap id="BaseResultMap" type="com.logistics.model.CarMessage">
+    <id column="Code" jdbcType="INTEGER" property="code" />
+    <result column="TradeMark" jdbcType="VARCHAR" property="trademark" />
+    <result column="Brand" jdbcType="VARCHAR" property="brand" />
+    <result column="Style" jdbcType="VARCHAR" property="style" />
+    <result column="CarLoad" jdbcType="VARCHAR" property="carload" />
+    <result column="UsedTime" jdbcType="VARCHAR" property="usedtime" />
+    <result column="DriverName" jdbcType="VARCHAR" property="drivername" />
+    <result column="DriverTime" jdbcType="VARCHAR" property="drivertime" />
+    <result column="LicenceNumber" jdbcType="VARCHAR" property="licencenumber" />
+    <result column="LicenceStyle" jdbcType="VARCHAR" property="licencestyle" />
+    <result column="TransportStyle" jdbcType="VARCHAR" property="transportstyle" />
+    <result column="LinkMan" jdbcType="VARCHAR" property="linkman" />
+    <result column="LinkPhone" jdbcType="VARCHAR" property="linkphone" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="IssueDate" jdbcType="TIMESTAMP" property="issuedate" />
+    <result column="UserDate" jdbcType="VARCHAR" property="userdate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Code, TradeMark, Brand, Style, CarLoad, UsedTime, DriverName, DriverTime, LicenceNumber, 
+    LicenceStyle, TransportStyle, LinkMan, LinkPhone, Remark, IssueDate, UserDate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_carmessage
+    where Code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_carmessage
+    where Code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.logistics.model.CarMessage">
+    insert into tb_carmessage (Code, TradeMark, Brand, 
+      Style, CarLoad, UsedTime, 
+      DriverName, DriverTime, LicenceNumber, 
+      LicenceStyle, TransportStyle, LinkMan, 
+      LinkPhone, Remark, IssueDate, 
+      UserDate)
+    values (#{code,jdbcType=INTEGER}, #{trademark,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{style,jdbcType=VARCHAR}, #{carload,jdbcType=VARCHAR}, #{usedtime,jdbcType=VARCHAR}, 
+      #{drivername,jdbcType=VARCHAR}, #{drivertime,jdbcType=VARCHAR}, #{licencenumber,jdbcType=VARCHAR}, 
+      #{licencestyle,jdbcType=VARCHAR}, #{transportstyle,jdbcType=VARCHAR}, #{linkman,jdbcType=VARCHAR}, 
+      #{linkphone,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{issuedate,jdbcType=TIMESTAMP}, 
+      #{userdate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.model.CarMessage">
+    insert into tb_carmessage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="trademark != null">
+        TradeMark,
+      </if>
+      <if test="brand != null">
+        Brand,
+      </if>
+      <if test="style != null">
+        Style,
+      </if>
+      <if test="carload != null">
+        CarLoad,
+      </if>
+      <if test="usedtime != null">
+        UsedTime,
+      </if>
+      <if test="drivername != null">
+        DriverName,
+      </if>
+      <if test="drivertime != null">
+        DriverTime,
+      </if>
+      <if test="licencenumber != null">
+        LicenceNumber,
+      </if>
+      <if test="licencestyle != null">
+        LicenceStyle,
+      </if>
+      <if test="transportstyle != null">
+        TransportStyle,
+      </if>
+      <if test="linkman != null">
+        LinkMan,
+      </if>
+      <if test="linkphone != null">
+        LinkPhone,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="issuedate != null">
+        IssueDate,
+      </if>
+      <if test="userdate != null">
+        UserDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="trademark != null">
+        #{trademark,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="style != null">
+        #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="carload != null">
+        #{carload,jdbcType=VARCHAR},
+      </if>
+      <if test="usedtime != null">
+        #{usedtime,jdbcType=VARCHAR},
+      </if>
+      <if test="drivername != null">
+        #{drivername,jdbcType=VARCHAR},
+      </if>
+      <if test="drivertime != null">
+        #{drivertime,jdbcType=VARCHAR},
+      </if>
+      <if test="licencenumber != null">
+        #{licencenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="licencestyle != null">
+        #{licencestyle,jdbcType=VARCHAR},
+      </if>
+      <if test="transportstyle != null">
+        #{transportstyle,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null">
+        #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="linkphone != null">
+        #{linkphone,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="issuedate != null">
+        #{issuedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userdate != null">
+        #{userdate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.model.CarMessage">
+    update tb_carmessage
+    <set>
+      <if test="trademark != null">
+        TradeMark = #{trademark,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        Brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="style != null">
+        Style = #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="carload != null">
+        CarLoad = #{carload,jdbcType=VARCHAR},
+      </if>
+      <if test="usedtime != null">
+        UsedTime = #{usedtime,jdbcType=VARCHAR},
+      </if>
+      <if test="drivername != null">
+        DriverName = #{drivername,jdbcType=VARCHAR},
+      </if>
+      <if test="drivertime != null">
+        DriverTime = #{drivertime,jdbcType=VARCHAR},
+      </if>
+      <if test="licencenumber != null">
+        LicenceNumber = #{licencenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="licencestyle != null">
+        LicenceStyle = #{licencestyle,jdbcType=VARCHAR},
+      </if>
+      <if test="transportstyle != null">
+        TransportStyle = #{transportstyle,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null">
+        LinkMan = #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="linkphone != null">
+        LinkPhone = #{linkphone,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="issuedate != null">
+        IssueDate = #{issuedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userdate != null">
+        UserDate = #{userdate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.model.CarMessage">
+    update tb_carmessage
+    set TradeMark = #{trademark,jdbcType=VARCHAR},
+      Brand = #{brand,jdbcType=VARCHAR},
+      Style = #{style,jdbcType=VARCHAR},
+      CarLoad = #{carload,jdbcType=VARCHAR},
+      UsedTime = #{usedtime,jdbcType=VARCHAR},
+      DriverName = #{drivername,jdbcType=VARCHAR},
+      DriverTime = #{drivertime,jdbcType=VARCHAR},
+      LicenceNumber = #{licencenumber,jdbcType=VARCHAR},
+      LicenceStyle = #{licencestyle,jdbcType=VARCHAR},
+      TransportStyle = #{transportstyle,jdbcType=VARCHAR},
+      LinkMan = #{linkman,jdbcType=VARCHAR},
+      LinkPhone = #{linkphone,jdbcType=VARCHAR},
+      Remark = #{remark,jdbcType=VARCHAR},
+      IssueDate = #{issuedate,jdbcType=TIMESTAMP},
+      UserDate = #{userdate,jdbcType=VARCHAR}
+    where Code = #{code,jdbcType=INTEGER}
+  </update>
+</mapper>

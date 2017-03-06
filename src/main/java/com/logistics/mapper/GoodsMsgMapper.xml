@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.logistics.dao.GoodsMsgMapper">
+  <resultMap id="BaseResultMap" type="com.logistics.model.GoodsMsg">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="GoodsStyle" jdbcType="VARCHAR" property="goodsstyle" />
+    <result column="GoodsName" jdbcType="VARCHAR" property="goodsname" />
+    <result column="GoodsNumber" jdbcType="VARCHAR" property="goodsnumber" />
+    <result column="GoodsUnit" jdbcType="VARCHAR" property="goodsunit" />
+    <result column="StartProvince" jdbcType="VARCHAR" property="startprovince" />
+    <result column="StartCity" jdbcType="VARCHAR" property="startcity" />
+    <result column="EndProvince" jdbcType="VARCHAR" property="endprovince" />
+    <result column="EndCity" jdbcType="VARCHAR" property="endcity" />
+    <result column="Style" jdbcType="VARCHAR" property="style" />
+    <result column="TransportTime" jdbcType="VARCHAR" property="transporttime" />
+    <result column="Phone" jdbcType="VARCHAR" property="phone" />
+    <result column="Link" jdbcType="VARCHAR" property="link" />
+    <result column="IssueDate" jdbcType="TIMESTAMP" property="issuedate" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="Request" jdbcType="VARCHAR" property="request" />
+    <result column="UserName" jdbcType="VARCHAR" property="username" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, GoodsStyle, GoodsName, GoodsNumber, GoodsUnit, StartProvince, StartCity, EndProvince, 
+    EndCity, Style, TransportTime, Phone, Link, IssueDate, Remark, Request, UserName
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_goodsmeg
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_goodsmeg
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.logistics.model.GoodsMsg">
+    insert into tb_goodsmeg (ID, GoodsStyle, GoodsName, 
+      GoodsNumber, GoodsUnit, StartProvince, 
+      StartCity, EndProvince, EndCity, 
+      Style, TransportTime, Phone, 
+      Link, IssueDate, Remark, 
+      Request, UserName)
+    values (#{id,jdbcType=INTEGER}, #{goodsstyle,jdbcType=VARCHAR}, #{goodsname,jdbcType=VARCHAR}, 
+      #{goodsnumber,jdbcType=VARCHAR}, #{goodsunit,jdbcType=VARCHAR}, #{startprovince,jdbcType=VARCHAR}, 
+      #{startcity,jdbcType=VARCHAR}, #{endprovince,jdbcType=VARCHAR}, #{endcity,jdbcType=VARCHAR}, 
+      #{style,jdbcType=VARCHAR}, #{transporttime,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{link,jdbcType=VARCHAR}, #{issuedate,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{request,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.model.GoodsMsg">
+    insert into tb_goodsmeg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="goodsstyle != null">
+        GoodsStyle,
+      </if>
+      <if test="goodsname != null">
+        GoodsName,
+      </if>
+      <if test="goodsnumber != null">
+        GoodsNumber,
+      </if>
+      <if test="goodsunit != null">
+        GoodsUnit,
+      </if>
+      <if test="startprovince != null">
+        StartProvince,
+      </if>
+      <if test="startcity != null">
+        StartCity,
+      </if>
+      <if test="endprovince != null">
+        EndProvince,
+      </if>
+      <if test="endcity != null">
+        EndCity,
+      </if>
+      <if test="style != null">
+        Style,
+      </if>
+      <if test="transporttime != null">
+        TransportTime,
+      </if>
+      <if test="phone != null">
+        Phone,
+      </if>
+      <if test="link != null">
+        Link,
+      </if>
+      <if test="issuedate != null">
+        IssueDate,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="request != null">
+        Request,
+      </if>
+      <if test="username != null">
+        UserName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="goodsstyle != null">
+        #{goodsstyle,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsname != null">
+        #{goodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsnumber != null">
+        #{goodsnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsunit != null">
+        #{goodsunit,jdbcType=VARCHAR},
+      </if>
+      <if test="startprovince != null">
+        #{startprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="startcity != null">
+        #{startcity,jdbcType=VARCHAR},
+      </if>
+      <if test="endprovince != null">
+        #{endprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="endcity != null">
+        #{endcity,jdbcType=VARCHAR},
+      </if>
+      <if test="style != null">
+        #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="transporttime != null">
+        #{transporttime,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null">
+        #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="issuedate != null">
+        #{issuedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="request != null">
+        #{request,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.model.GoodsMsg">
+    update tb_goodsmeg
+    <set>
+      <if test="goodsstyle != null">
+        GoodsStyle = #{goodsstyle,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsname != null">
+        GoodsName = #{goodsname,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsnumber != null">
+        GoodsNumber = #{goodsnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsunit != null">
+        GoodsUnit = #{goodsunit,jdbcType=VARCHAR},
+      </if>
+      <if test="startprovince != null">
+        StartProvince = #{startprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="startcity != null">
+        StartCity = #{startcity,jdbcType=VARCHAR},
+      </if>
+      <if test="endprovince != null">
+        EndProvince = #{endprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="endcity != null">
+        EndCity = #{endcity,jdbcType=VARCHAR},
+      </if>
+      <if test="style != null">
+        Style = #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="transporttime != null">
+        TransportTime = #{transporttime,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        Phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="link != null">
+        Link = #{link,jdbcType=VARCHAR},
+      </if>
+      <if test="issuedate != null">
+        IssueDate = #{issuedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="request != null">
+        Request = #{request,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        UserName = #{username,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.model.GoodsMsg">
+    update tb_goodsmeg
+    set GoodsStyle = #{goodsstyle,jdbcType=VARCHAR},
+      GoodsName = #{goodsname,jdbcType=VARCHAR},
+      GoodsNumber = #{goodsnumber,jdbcType=VARCHAR},
+      GoodsUnit = #{goodsunit,jdbcType=VARCHAR},
+      StartProvince = #{startprovince,jdbcType=VARCHAR},
+      StartCity = #{startcity,jdbcType=VARCHAR},
+      EndProvince = #{endprovince,jdbcType=VARCHAR},
+      EndCity = #{endcity,jdbcType=VARCHAR},
+      Style = #{style,jdbcType=VARCHAR},
+      TransportTime = #{transporttime,jdbcType=VARCHAR},
+      Phone = #{phone,jdbcType=VARCHAR},
+      Link = #{link,jdbcType=VARCHAR},
+      IssueDate = #{issuedate,jdbcType=TIMESTAMP},
+      Remark = #{remark,jdbcType=VARCHAR},
+      Request = #{request,jdbcType=VARCHAR},
+      UserName = #{username,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

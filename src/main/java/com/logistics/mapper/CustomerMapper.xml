@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.logistics.dao.CustomerMapper">
+  <resultMap id="BaseResultMap" type="com.logistics.model.Customer">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Password" jdbcType="VARCHAR" property="password" />
+    <result column="Pow" jdbcType="CHAR" property="pow" />
+    <result column="Email" jdbcType="VARCHAR" property="email" />
+    <result column="Sex" jdbcType="VARCHAR" property="sex" />
+    <result column="Phone" jdbcType="VARCHAR" property="phone" />
+    <result column="Question" jdbcType="VARCHAR" property="question" />
+    <result column="Result" jdbcType="VARCHAR" property="result" />
+    <result column="IssueDate" jdbcType="VARCHAR" property="issuedate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Name, Password, Pow, Email, Sex, Phone, Question, Result, IssueDate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_customer
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_customer
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.logistics.model.Customer">
+    insert into tb_customer (ID, Name, Password, 
+      Pow, Email, Sex, Phone, 
+      Question, Result, IssueDate
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{pow,jdbcType=CHAR}, #{email,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{question,jdbcType=VARCHAR}, #{result,jdbcType=VARCHAR}, #{issuedate,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.model.Customer">
+    insert into tb_customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="password != null">
+        Password,
+      </if>
+      <if test="pow != null">
+        Pow,
+      </if>
+      <if test="email != null">
+        Email,
+      </if>
+      <if test="sex != null">
+        Sex,
+      </if>
+      <if test="phone != null">
+        Phone,
+      </if>
+      <if test="question != null">
+        Question,
+      </if>
+      <if test="result != null">
+        Result,
+      </if>
+      <if test="issuedate != null">
+        IssueDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="pow != null">
+        #{pow,jdbcType=CHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="question != null">
+        #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="issuedate != null">
+        #{issuedate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.model.Customer">
+    update tb_customer
+    <set>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        Password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="pow != null">
+        Pow = #{pow,jdbcType=CHAR},
+      </if>
+      <if test="email != null">
+        Email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        Sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        Phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="question != null">
+        Question = #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        Result = #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="issuedate != null">
+        IssueDate = #{issuedate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.model.Customer">
+    update tb_customer
+    set Name = #{name,jdbcType=VARCHAR},
+      Password = #{password,jdbcType=VARCHAR},
+      Pow = #{pow,jdbcType=CHAR},
+      Email = #{email,jdbcType=VARCHAR},
+      Sex = #{sex,jdbcType=VARCHAR},
+      Phone = #{phone,jdbcType=VARCHAR},
+      Question = #{question,jdbcType=VARCHAR},
+      Result = #{result,jdbcType=VARCHAR},
+      IssueDate = #{issuedate,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

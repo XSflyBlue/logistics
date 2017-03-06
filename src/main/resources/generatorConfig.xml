@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 数据库驱动包位置 -->
+	<classPathEntry
+		location="D:\Program Files\Develop\LocalRepository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
+	<context id="context">
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!-- 数据库链接URL、用户名、密码 -->
+		<jdbcConnection connectionURL="jdbc:mysql://localhost:3306/db_wuliu"
+			driverClass="com.mysql.jdbc.Driver" password="123456" userId="root" />
+		<!-- 生成模型的包名和位置 -->
+		<javaModelGenerator targetPackage="com.logistics.model"
+			targetProject="logistics\src\main\java" />
+		<!-- 生成的映射文件报名和位置 -->
+		<sqlMapGenerator targetPackage="com.logistics.mapper"
+			targetProject="logistics\src\main\java" />
+		<!-- 生成DAO的包名和位置 -->
+		<javaClientGenerator targetPackage="com.logistics.dao"
+			targetProject="logistics\src\main\java" type="XMLMAPPER" />
+		<!-- 要生成的那些表(更改tableName 和domainObjectName 就可以了) -->
+		<table schema="ssm" tableName="tb_carmessage" domainObjectName="CarMessage"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<!-- <columnOverride column="???" property="???" /> -->
+		</table>
+		<table tableName="tb_customer" domainObjectName="Customer"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="tb_enterprise" domainObjectName="Enterprise"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="tb_goodsmeg" domainObjectName="GoodsMsg"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="tb_knowledge" domainObjectName="Knowledge"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<columnOverride column="[Content]" property="content" />
+		</table>
+		<table tableName="tb_logistics" domainObjectName="Logistics"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<columnOverride column="[Content]" property="content" />
+		</table>
+		<table tableName="tb_placard" domainObjectName="Placard"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<columnOverride column="[Content]" property="content" />
+		</table>
+	</context>
+</generatorConfiguration>

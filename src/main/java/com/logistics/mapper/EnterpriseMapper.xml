@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.logistics.dao.EnterpriseMapper">
+  <resultMap id="BaseResultMap" type="com.logistics.model.Enterprise">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="EnterpriseSort" jdbcType="VARCHAR" property="enterprisesort" />
+    <result column="EnterpriseName" jdbcType="VARCHAR" property="enterprisename" />
+    <result column="Operation" jdbcType="VARCHAR" property="operation" />
+    <result column="WorkArea" jdbcType="VARCHAR" property="workarea" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="Phone" jdbcType="VARCHAR" property="phone" />
+    <result column="LinkMan" jdbcType="VARCHAR" property="linkman" />
+    <result column="HandSet" jdbcType="VARCHAR" property="handset" />
+    <result column="Fax" jdbcType="VARCHAR" property="fax" />
+    <result column="Email" jdbcType="VARCHAR" property="email" />
+    <result column="Http" jdbcType="VARCHAR" property="http" />
+    <result column="Intro" jdbcType="VARCHAR" property="intro" />
+    <result column="IssueDate" jdbcType="VARCHAR" property="issuedate" />
+    <result column="UserName" jdbcType="VARCHAR" property="username" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, EnterpriseSort, EnterpriseName, Operation, WorkArea, Address, Phone, LinkMan, 
+    HandSet, Fax, Email, Http, Intro, IssueDate, UserName
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_enterprise
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_enterprise
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.logistics.model.Enterprise">
+    insert into tb_enterprise (ID, EnterpriseSort, EnterpriseName, 
+      Operation, WorkArea, Address, 
+      Phone, LinkMan, HandSet, 
+      Fax, Email, Http, Intro, 
+      IssueDate, UserName)
+    values (#{id,jdbcType=INTEGER}, #{enterprisesort,jdbcType=VARCHAR}, #{enterprisename,jdbcType=VARCHAR}, 
+      #{operation,jdbcType=VARCHAR}, #{workarea,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{linkman,jdbcType=VARCHAR}, #{handset,jdbcType=VARCHAR}, 
+      #{fax,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{http,jdbcType=VARCHAR}, #{intro,jdbcType=VARCHAR}, 
+      #{issuedate,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.model.Enterprise">
+    insert into tb_enterprise
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="enterprisesort != null">
+        EnterpriseSort,
+      </if>
+      <if test="enterprisename != null">
+        EnterpriseName,
+      </if>
+      <if test="operation != null">
+        Operation,
+      </if>
+      <if test="workarea != null">
+        WorkArea,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="phone != null">
+        Phone,
+      </if>
+      <if test="linkman != null">
+        LinkMan,
+      </if>
+      <if test="handset != null">
+        HandSet,
+      </if>
+      <if test="fax != null">
+        Fax,
+      </if>
+      <if test="email != null">
+        Email,
+      </if>
+      <if test="http != null">
+        Http,
+      </if>
+      <if test="intro != null">
+        Intro,
+      </if>
+      <if test="issuedate != null">
+        IssueDate,
+      </if>
+      <if test="username != null">
+        UserName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="enterprisesort != null">
+        #{enterprisesort,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprisename != null">
+        #{enterprisename,jdbcType=VARCHAR},
+      </if>
+      <if test="operation != null">
+        #{operation,jdbcType=VARCHAR},
+      </if>
+      <if test="workarea != null">
+        #{workarea,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null">
+        #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="handset != null">
+        #{handset,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null">
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="http != null">
+        #{http,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="issuedate != null">
+        #{issuedate,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.model.Enterprise">
+    update tb_enterprise
+    <set>
+      <if test="enterprisesort != null">
+        EnterpriseSort = #{enterprisesort,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprisename != null">
+        EnterpriseName = #{enterprisename,jdbcType=VARCHAR},
+      </if>
+      <if test="operation != null">
+        Operation = #{operation,jdbcType=VARCHAR},
+      </if>
+      <if test="workarea != null">
+        WorkArea = #{workarea,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        Phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null">
+        LinkMan = #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="handset != null">
+        HandSet = #{handset,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null">
+        Fax = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        Email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="http != null">
+        Http = #{http,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        Intro = #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="issuedate != null">
+        IssueDate = #{issuedate,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        UserName = #{username,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.model.Enterprise">
+    update tb_enterprise
+    set EnterpriseSort = #{enterprisesort,jdbcType=VARCHAR},
+      EnterpriseName = #{enterprisename,jdbcType=VARCHAR},
+      Operation = #{operation,jdbcType=VARCHAR},
+      WorkArea = #{workarea,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=VARCHAR},
+      Phone = #{phone,jdbcType=VARCHAR},
+      LinkMan = #{linkman,jdbcType=VARCHAR},
+      HandSet = #{handset,jdbcType=VARCHAR},
+      Fax = #{fax,jdbcType=VARCHAR},
+      Email = #{email,jdbcType=VARCHAR},
+      Http = #{http,jdbcType=VARCHAR},
+      Intro = #{intro,jdbcType=VARCHAR},
+      IssueDate = #{issuedate,jdbcType=VARCHAR},
+      UserName = #{username,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

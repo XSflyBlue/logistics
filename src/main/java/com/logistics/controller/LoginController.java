@@ -16,15 +16,13 @@ public class LoginController {
 	private ICustomerService customerService;
 
 	@RequestMapping("/login")
-	public String toIndex(HttpServletRequest request, Model model) {
-		int customerId = Integer.parseInt(request.getParameter("id"));
+	public String toIndex(HttpServletRequest request) {
+		int customerId = Integer.parseInt(request.getParameter("name"));
 		Customer customer = this.customerService.getCustomerById(customerId);
 		if (customer != null) {
-			// model.addAttribute("customer", customer);
 			request.getSession().setAttribute("customer", customer);
 			request.getSession().setAttribute("login", "success");
 		}
-		System.out.println(99999);
 		return "aaa";
 	}
 	@RequestMapping("test")

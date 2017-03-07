@@ -1,6 +1,7 @@
-<%@page contentType="text/html; charset=UTF-8" language="java"%>
-<%@page import="java.util.*"%>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ page contentType="text/html; charset=gb2312" language="java"%>
+<%@ page import="java.util.*"%>
+<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 
 <table width="100%" border="0" align="center" cellpadding="0"
 	cellspacing="0">
@@ -13,6 +14,8 @@
 					<td width="787"></td>
 				</tr>
 			</table>
+
+		</td>
 	</tr>
 </table>
 <table width="100%" height="32" border="0" cellpadding="0"
@@ -21,13 +24,17 @@
 		<td><table width="786" border="0" align="center" cellpadding="0"
 				cellspacing="0" background="image/4.jpg">
 				<tr>
-					<th width="189" height="31" align="center">&nbsp;</th>
-					<th width="597" height="31" align="center"><a href="index.jsp"
-						class="a1">æœ¬ç«™é¦–é¡µ</a>&nbsp;|&nbsp;<a href="" class="a1">ç‰©æµåŠ¨æ€</a>&nbsp;|&nbsp;<a
-						href="" class="a1">ç‰©æµçŸ¥è¯†</a>&nbsp;|&nbsp;<a href="" class="a1">è´§ç‰©ä¿¡æ¯</a>&nbsp;|&nbsp;<a
-						href="" class="a1">è½¦è¾†ä¿¡æ¯</a>&nbsp;|&nbsp;<a href="" class="a1">ä¼ä¸šä¿¡æ¯</a>&nbsp;|&nbsp;<a
-						href="" class="a1">è¾…åŠ©å·¥å…·</a>&nbsp;|&nbsp;<a href="" class="a1">é€€å‡º</a>&nbsp;|&nbsp;<a
-						href="" class="a1">ç®¡ç†</a></th>
+					<th width="189" height="31" align="center">&nbsp; <fmt:formatDate value="<%=new Date() %>" pattern="yyyyÄêMMÔÂddÈÕ  E"/>
+					</th>
+					<th width="597" height="31" align="center"><a href="index"
+						class="a1">±¾Õ¾Ê×Ò³</a>&nbsp;|&nbsp;<a href="active_select.jsp"
+						class="a1">ÎïÁ÷¶¯Ì¬</a>&nbsp;|&nbsp;<a href="knowledge_select.jsp"
+						class="a1">ÎïÁ÷ÖªÊ¶</a>&nbsp;|&nbsp;<a href="goods_select.jsp"
+						class="a1">»õÎïĞÅÏ¢</a>&nbsp;|&nbsp;<a href="car_select.jsp"
+						class="a1">³µÁ¾ĞÅÏ¢</a>&nbsp;|&nbsp;<a href="enterprise_select.jsp"
+						class="a1">ÆóÒµĞÅÏ¢</a>&nbsp;|&nbsp;<a href="tool_assistant.jsp"
+						class="a1">¸¨Öú¹¤¾ß</a>&nbsp;|&nbsp;<a href="logout.jsp" class="a1">ÍË³ö</a>&nbsp;|&nbsp;<a
+						href="Manager/index.jsp" class="a1">ºóÌ¨¹ÜÀí</a></th>
 				</tr>
 			</table></td>
 	</tr>

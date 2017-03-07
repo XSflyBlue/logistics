@@ -11,6 +11,7 @@
 		username = customer.getName();
 		pow = customer.getPow();
 	}
+	//用户名回显cookie
 %>
 <table width="202" border="0" cellpadding="0" cellspacing="0">
 	<tr>

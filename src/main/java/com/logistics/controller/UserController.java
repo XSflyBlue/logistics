@@ -27,6 +27,9 @@ public class UserController {
 		if (customer != null && customer.getPassword().equals(request.getParameter("password"))) {
 			request.getSession().setAttribute("customer", customer);
 			request.getSession().setAttribute("login", "success");
+			if(null != null){
+				//权限验证
+			}
 		}
 		return "index";
 	}

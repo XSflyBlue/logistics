@@ -35,10 +35,10 @@ public class UserController {
 	}
 	@RequestMapping("/userRegister")
 	public String userRegister() {
-		return "WEB-INF/jsp/aaa";//测试页面
+		return "register";//测试页面
 	}
 	@RequestMapping("/userFound")
 	public String userFound() {
-		return "WEB-INF/jsp/aaa";
+		return "aaa";
 	}
 }

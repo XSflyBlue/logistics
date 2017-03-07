@@ -8,7 +8,7 @@
 <title></title>
 <Script language="javascript">
 	function check1() {
-		if (form_u.name.value == "") {
+		if (form_u.userid.value == "") {
 			alert("请添入姓名");
 			form_u.name.focus();
 			return false;

@@ -33,7 +33,7 @@
 						class="a1">货物信息</a>&nbsp;|&nbsp;<a href="car_select.jsp"
 						class="a1">车辆信息</a>&nbsp;|&nbsp;<a href="enterprise_select.jsp"
 						class="a1">企业信息</a>&nbsp;|&nbsp;<a href="tool_assistant.jsp"
-						class="a1">辅助工具</a>&nbsp;|&nbsp;<a href="logout.jsp" class="a1">退出</a>&nbsp;|&nbsp;<a
+						class="a1">辅助工具</a>&nbsp;|&nbsp;<a href="userLogout" class="a1">退出</a>&nbsp;|&nbsp;<a
 						href="Manager/index.jsp" class="a1">后台管理</a></th>
 				</tr>
 			</table></td>

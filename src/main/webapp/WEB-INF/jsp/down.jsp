@@ -6,7 +6,7 @@
 		<td height="76" align="center"><ahref="mailto:客户服务中心信箱：*****@**.com">客户服务中心信箱：*****@**.com</a>&nbsp;客户服务中心热线直播：023－6248****29
 			<br>
 			公司名称：****有限公司&nbsp;邮政编码：600000 <br>
-			Copyright 2013 ***科技<br></td>
+			Copyright 2017 ***科技<br></td>
 	</tr>
 </table>
 

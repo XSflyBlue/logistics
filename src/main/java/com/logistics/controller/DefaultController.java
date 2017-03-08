@@ -20,8 +20,8 @@ public class DefaultController {
 	public String logistics(){
 		return "aaa"; //测试页面
 	}
-	@RequestMapping("/acknowledge")
-	public String acknowledge(){
+	@RequestMapping("/knowledge")
+	public String knowledge(){
 		return "aaa"; //测试页面
 	}
 	@RequestMapping("/goodsMsg")

@@ -24,7 +24,7 @@
 		<!-- 要生成的那些表(更改tableName 和domainObjectName 就可以了) -->
 		<table schema="ssm" tableName="tb_carmessage" domainObjectName="CarMessage"
 			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
 			selectByExampleQueryId="false">
 			<!-- <columnOverride column="???" property="???" /> -->
 		</table>
@@ -34,11 +34,11 @@
 			selectByExampleQueryId="false"></table>
 		<table tableName="tb_enterprise" domainObjectName="Enterprise"
 			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
 			selectByExampleQueryId="false"></table>
 		<table tableName="tb_goodsmeg" domainObjectName="GoodsMsg"
 			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
 			selectByExampleQueryId="false"></table>
 		<table tableName="tb_knowledge" domainObjectName="Knowledge"
 			enableCountByExample="false" enableUpdateByExample="false"

@@ -12,4 +12,8 @@ public class DefaultController {
 	public String register() {
 		return "register"; 		
 	}
+	@RequestMapping("/found")
+	public String found() {
+		return "found"; 		
+	}
 }

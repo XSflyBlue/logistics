@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.logistics.model.Customer;
 import com.logistics.service.ICustomerService;
+import com.logistics.util.SendEmail;
 
 @Controller
 public class UserController {
@@ -36,7 +37,7 @@ public class UserController {
 
 	@RequestMapping("/userRegister")
 	public String userRegister() {
-		return "register";// 测试页面
+		return "register";
 	}
 	@RequestMapping("/userRegistConfig")
 	public String userRegistConfig(HttpServletRequest request,Model model){		
@@ -79,7 +80,32 @@ public class UserController {
 	}
 	@RequestMapping("/userFound")
 	public String userFound() {
-		return "aaa";
+		return "found";
+	}
+	@RequestMapping("/userFoundConfig")
+	public String userFound(HttpServletRequest request,Model model) {
+		String name=request.getParameter("name");
+		String email=request.getParameter("email");
+		String result=request.getParameter("result");
+		String question=request.getParameter("question");
+		//验证
+		customer = this.customerService.getCustomerByName(name);
+		if(customer == null){
+			model.addAttribute("info","此用户不存在");
+			return "foundInfo";
+		}
+
+		if(customer.getEmail().equals(email)
+				&& customer.getResult().equals(result)
+				&& customer.getQuestion().equals(question)){
+            SendEmail send = new SendEmail(customer);
+            //启动线程，线程启动之后就会执行run方法来发送邮件
+            send.start();
+			model.addAttribute("info","密码找回成功，我们已经发了一封密码的电子邮件，请查收，如果没有收到，可能是网络原因，过一会儿就收到了！！");
+			return "info";
+		}
+		model.addAttribute("info","用户信息有误");
+		return "foundInfo";
 	}
 
 	@RequestMapping("/userLogout")

@@ -1,5 +1,7 @@
 package com.logistics.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;  
 
 import org.springframework.stereotype.Service;  
@@ -20,8 +22,9 @@ public class CustomerServiceImpl implements ICustomerService {
 		CustomerExample example = new CustomerExample();    
 		Criteria criteria = example.createCriteria();    
 		criteria.andNameEqualTo(customerName);
-		if(customerDao.selectByExample(example)!=null && customerDao.selectByExample(example).size()!=0){
-			return customerDao.selectByExample(example).get(0);
+		List<Customer> customerList = customerDao.selectByExample(example);
+		if(customerList.size()!=0){
+			return customerList.get(0);
 		}
 		return null;
 	}

@@ -106,7 +106,7 @@
 				<tr>
 					<td width="46%" align="left" height="27"><div align="right">用户名：</div></td>
 					<td width="54%" align="left"><input type="text" name="name"
-						size="20"></td>
+						size="20" ></td>
 				</tr>
 				<tr>
 					<td width="46%" height="27">

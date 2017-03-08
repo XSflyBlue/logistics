@@ -8,8 +8,8 @@
 <title></title>
 <Script language="javascript">
 	function check1() {
-		if (form_u.userid.value == "") {
-			alert("请添入用户ID");
+		if (form_u.name.value == "") {
+			alert("请添入用户名");
 			form_u.name.focus();
 			return false;
 		}

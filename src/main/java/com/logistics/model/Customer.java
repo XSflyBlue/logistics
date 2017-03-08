@@ -21,7 +21,10 @@ public class Customer {
 
     private String issuedate;
 
-    public Integer getId() {
+    public Customer() {
+	}
+
+	public Integer getId() {
         return id;
     }
 

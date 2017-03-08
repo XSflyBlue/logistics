@@ -51,7 +51,7 @@
 </script>
 <body>
 	<center>
-		<form method="POST" action="regist_config.jsp" name="form1">
+		<form method="POST" action="userRegistConfig" name="form1">
 
 			<table width="100%" border="0" align="center" cellpadding="0"
 				cellspacing="0">
@@ -128,7 +128,7 @@
 					</td>
 					<td width="54%">&nbsp; 男 <input type="radio" value="man"
 						checked name="sex"> &nbsp; 女 <input type="radio"
-						name="sex" value="moman"></td>
+						name="sex" value="woman"></td>
 				</tr>
 				<tr>
 					<td width="46%" height="27">

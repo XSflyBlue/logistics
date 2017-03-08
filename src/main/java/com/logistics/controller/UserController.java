@@ -18,14 +18,9 @@ public class UserController {
 
 	@RequestMapping("/userLoginCheck")
 	public String loginCheck(HttpServletRequest request, Model model) {
-		int customerId;
-		try {
-			customerId = Integer.parseInt(request.getParameter("userid"));
-			customer = this.customerService.getCustomerById(customerId);
-		} catch (Exception e) {
-			model.addAttribute("info", "登录失败");
-			return "info";
-		}
+		String name;
+		name = request.getParameter("name");
+		customer = this.customerService.getCustomerByName(name);
 		if (customer != null && customer.getPassword().equals(request.getParameter("password"))) {
 			request.getSession().setAttribute("customer", customer);
 			request.getSession().setAttribute("login", "success");
@@ -43,7 +38,45 @@ public class UserController {
 	public String userRegister() {
 		return "register";// 测试页面
 	}
-
+	@RequestMapping("/userRegistConfig")
+	public String userRegistConfig(HttpServletRequest request,Model model){		
+		//验证
+		String name=request.getParameter("name");
+		customer = this.customerService.getCustomerByName(name);
+		if(customer != null){
+			model.addAttribute("info","此用户已经被占用请重新注册");
+			return "registInfo";
+		}
+		
+		String password=request.getParameter("password");
+		String email=request.getParameter("email");
+		String sex=request.getParameter("sex");
+		String phone=request.getParameter("phone");
+		String result=request.getParameter("result");
+		String question=request.getParameter("question");
+		//待完成
+		if(name == null || "".equals(name) ){
+			
+		}
+		customer = new Customer();
+		customer.setName(name);
+		customer.setPassword(password);
+		customer.setEmail(email);
+		customer.setSex(sex);
+		customer.setPhone(phone);
+		customer.setResult(result);
+		customer.setQuestion(question);
+		customer.setPow("1");
+		//时间待完成
+		customer.setIssuedate("233");
+		int flag = customerService.insertSelective(customer);
+		if(flag == 0){
+			model.addAttribute("info","注册失败");
+			return "registInfo";
+		}
+		model.addAttribute("info","注册成功");
+		return "info";
+	}
 	@RequestMapping("/userFound")
 	public String userFound() {
 		return "aaa";

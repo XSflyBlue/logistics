@@ -31,9 +31,9 @@
 					cellspacing="0">
 					<tr>
 						<td width="32%" height="30" align="center" valign="bottom"><div
-								align="right">用户ID</div></td>
+								align="right">用户名</div></td>
 						<td width="68%" align="center" valign="bottom"><input
-							name="userid" type="text" size="16" maxlength="20"></td>
+							name="name" type="text" size="16" maxlength="20"></td>
 					</tr>
 					<tr>
 						<td height="30" align="center"><div align="right">密码</div></td>

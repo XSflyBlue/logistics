@@ -8,4 +8,8 @@ public class DefaultController {
 	public String index () {
 		return "index"; 		
 	}
+	@RequestMapping("/register")
+	public String register() {
+		return "register"; 		
+	}
 }

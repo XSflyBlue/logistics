@@ -40,7 +40,7 @@
 				<table width="370" border="0" cellpadding="0" cellspacing="0"
 					background="image/14.jpg">
 					<tr>
-						<td valign="top"><jsp:include page="goodsShowTop8" /></td>
+						<td valign="top"><jsp:include page="goods/indexShow.jsp" /></td>
 					</tr>
 				</table>
 				<table width="100" border="0" cellpadding="0" cellspacing="0">
@@ -52,12 +52,7 @@
 					background="image/17.jpg">
 
 					<tr>
-						<td width="36" height="25">&nbsp;</td>
-						<td width="334"><a href=""></a></td>
-					</tr>
-					<tr>
-						<td width="36" height="25">&nbsp;</td>
-						<td width="334" align="right"><a href="">&nbsp;>>>更多信息&nbsp;&nbsp;&nbsp;</a></td>
+						<td valign="top"><jsp:include page="car/indexShow.jsp" /></td>
 					</tr>
 				</table>
 				<table width="100" border="0" cellpadding="0" cellspacing="0">
@@ -68,12 +63,7 @@
 				<table width="370" border="0" cellpadding="0" cellspacing="0"
 					background="image/19.jpg">
 					<tr>
-						<td width="36" height="25">&nbsp;</td>
-						<td width="334"><a href=""></a></td>
-					</tr>
-					<tr>
-						<td width="36" height="25">&nbsp;</td>
-						<td width="334" align="right"><a href="">&nbsp;>>>更多信息&nbsp;&nbsp;&nbsp;</a></td>
+						<td valign="top"><jsp:include page="enterprise/indexShow.jsp" /></td>
 					</tr>
 				</table></td>
 			<!--存放中间的代码-->

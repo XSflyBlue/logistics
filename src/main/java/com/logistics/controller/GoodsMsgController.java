@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class GoodsMsgController {
-	@Resource
 	
 	
 	@RequestMapping("/goodsMsgShowTop8")
-	public String userRegister() {
-		return "indexShow";
+	public String goodsMsgShowTop8() {
+		return "goods/indexShow";
 	}
 }

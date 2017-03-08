@@ -16,4 +16,24 @@ public class DefaultController {
 	public String found() {
 		return "found"; 		
 	}
+	@RequestMapping("/logistics")
+	public String logistics(){
+		return "aaa"; //测试页面
+	}
+	@RequestMapping("/acknowledge")
+	public String acknowledge(){
+		return "aaa"; //测试页面
+	}
+	@RequestMapping("/goodsMsg")
+	public String goodsMsg(){
+		return "aaa"; //测试页面
+	}
+	@RequestMapping("/carMsg")
+	public String carMsg(){
+		return "aaa"; //测试页面
+	}
+	@RequestMapping("/enterprise")
+	public String enterprise(){
+		return "aaa"; //测试页面
+	}
 }

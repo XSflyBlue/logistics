@@ -109,7 +109,7 @@ public class UserController {
 	}
 
 	@RequestMapping("/userLogout")
-	public String userExit(HttpServletRequest request, Model model) {
+	public String userLogout(HttpServletRequest request, Model model) {
 		customer = (Customer) request.getSession().getAttribute("customer");
 		String login = (String) request.getSession().getAttribute("login");
 		if (customer != null && login != null) {
@@ -118,6 +118,25 @@ public class UserController {
 			model.addAttribute("info", customer.getName() + "退出成功");
 			return "info";
 		}
+		if (login != null) {
+			request.getSession().removeAttribute("login");
+			return "index";
+		}
 		return "index";
+	}
+	@RequestMapping("/userManager")
+	public String userManager(HttpServletRequest request, Model model) {
+		//bug，浏览器不关，登录信息依然存在
+		customer = (Customer) request.getSession().getAttribute("customer");
+		if(customer == null){
+			model.addAttribute("info", "用户未登录");
+			return "info";
+		}
+		if (customer.getPow().equals("2")) {
+			return "manager/index";
+		}else{
+			model.addAttribute("info", "用户权限不足");
+			return "info";
+		}
 	}
 }

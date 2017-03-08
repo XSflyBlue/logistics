@@ -27,7 +27,7 @@
 					<th width="189" height="31" align="center">&nbsp; <fmt:formatDate value="<%=new Date() %>" pattern="yyyy年MM月dd日  E"/>
 					</th>
 					<th width="597" height="31" align="center"><a href="index"
-						class="a1">本站首页</a>&nbsp;|&nbsp;<a href="active_select.jsp"
+						class="a1">本站首页</a>&nbsp;|&nbsp;<a href="activeShow"
 						class="a1">物流动态</a>&nbsp;|&nbsp;<a href="knowledge_select.jsp"
 						class="a1">物流知识</a>&nbsp;|&nbsp;<a href="goods_select.jsp"
 						class="a1">货物信息</a>&nbsp;|&nbsp;<a href="car_select.jsp"

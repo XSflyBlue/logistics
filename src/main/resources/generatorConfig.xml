@@ -42,19 +42,19 @@
 			selectByExampleQueryId="false"></table>
 		<table tableName="tb_knowledge" domainObjectName="Knowledge"
 			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
 			selectByExampleQueryId="false">
 			<columnOverride column="[Content]" property="content" />
 		</table>
 		<table tableName="tb_logistics" domainObjectName="Logistics"
 			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
 			selectByExampleQueryId="false">
 			<columnOverride column="[Content]" property="content" />
 		</table>
 		<table tableName="tb_placard" domainObjectName="Placard"
 			enableCountByExample="false" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
 			selectByExampleQueryId="false">
 			<columnOverride column="[Content]" property="content" />
 		</table>

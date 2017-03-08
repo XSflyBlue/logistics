@@ -15,7 +15,7 @@ import com.logistics.service.ICustomerService;
 @Service("customerService")  
 public class CustomerServiceImpl implements ICustomerService {  
     @Resource  
-    private CustomerMapper customerDao;  
+    private CustomerMapper customerDao; 
 
 	public Customer getCustomerByName(String customerName) {
 		// TODO Auto-generated method stub

@@ -19,7 +19,7 @@ public class DefaultController {
 	@RequestMapping("/index")
 	public String index(HttpServletRequest request) {
 		@SuppressWarnings("unchecked")
-		List<GoodsMsg> goodsMsgList = (List<GoodsMsg>) request.getSession().getAttribute("goodsMsg");
+		List<GoodsMsg> goodsMsgList = (List<GoodsMsg>) request.getSession().getAttribute("goodsMsgList");
 		CarMessage carMessage = (CarMessage) request.getSession().getAttribute("carMessage");
 		Enterprise enterprise = (Enterprise) request.getSession().getAttribute("enterprise");
 		// if(goodsMsg == null || carMessage==null || enterprise ==null){

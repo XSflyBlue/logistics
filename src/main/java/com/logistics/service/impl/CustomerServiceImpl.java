@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
   
 import com.logistics.model.Customer;
 import com.logistics.model.CustomerExample;
+import com.logistics.model.GoodsMsg;
 import com.logistics.model.CustomerExample.Criteria;
 import com.logistics.dao.CustomerMapper; 
 import com.logistics.service.ICustomerService;
@@ -31,5 +32,32 @@ public class CustomerServiceImpl implements ICustomerService {
 	
 	public int insertSelective(Customer record) {
 		return customerDao.insertSelective(record);
+	}
+	
+	public List<Customer> selectAll() {
+		CustomerExample example = new CustomerExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andIdIsNotNull();
+		List<Customer> customerListAll = customerDao.selectByExample(example);
+		if(customerListAll.size()!=0){
+			return customerListAll;
+		}
+		return null;
+	}
+
+	public int deleteById(int id) {
+		return this.customerDao.deleteByPrimaryKey(id);
+	}
+
+	public Customer selectById(int id) {
+		Customer customer = customerDao.selectByPrimaryKey(id);
+		if(customer!=null){
+			return customer;
+		}
+		return null;
+	}
+	public int updateById(Customer record) {
+		// TODO Auto-generated method stub
+		return this.customerDao.updateByPrimaryKey(record);
 	}
 }  

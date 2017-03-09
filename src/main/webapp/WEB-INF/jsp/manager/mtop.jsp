@@ -20,12 +20,16 @@
 				align="center" cellpadding="0" cellspacing="0"
 				background="image/bg-4.jpg">
 				<tr>
-					<th><a href="index.jsp" class="a1">首页</a> |&nbsp;<a href=""
-						class="a1">物流动态管理</a>&nbsp;| <a href="" class="a1">物流知识管理</a>&nbsp;|&nbsp;<a
-						href="" class="a1">货物管理</a>&nbsp;|&nbsp;<a href="" class="a1">车辆管理</a>&nbsp;|&nbsp;<a
-						href="" class="a1">企业管理</a>&nbsp;|&nbsp;&nbsp;<a href=""
-						class="a1">公告管理</a>&nbsp;|&nbsp;<a href="" class="a1">会员管理</a>&nbsp;|&nbsp;<a
-						href="" class="a1">辅助工具</a>&nbsp;|&nbsp;<a href="" class="a1">退出</a></th>
+					<th><a href="index.jsp" class="a1">首页</a> |&nbsp;
+					    <a href="" class="a1">物流动态管理</a>&nbsp;| 
+						<a href="" class="a1">物流知识管理</a>&nbsp;|&nbsp;
+						<a href="" class="a1">货物管理</a>&nbsp;|&nbsp;
+						<a href="" class="a1">车辆管理</a>&nbsp;|&nbsp;
+						<a href="" class="a1">企业管理</a>&nbsp;|&nbsp;&nbsp;
+						<a href="" class="a1">公告管理</a>&nbsp;|&nbsp;
+						<a href="memberShow" class="a1">会员管理</a>&nbsp;|&nbsp;
+						<a href="" class="a1">辅助工具</a>&nbsp;|&nbsp;
+						<a href="index" class="a1">退出</a></th>
 				</tr>
 			</table></td>
 	</tr>

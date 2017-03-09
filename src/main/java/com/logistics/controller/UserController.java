@@ -1,5 +1,8 @@
 package com.logistics.controller;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.logistics.model.Customer;
+import com.logistics.model.GoodsMsg;
 import com.logistics.service.ICustomerService;
 import com.logistics.util.SendEmail;
 
@@ -138,5 +142,120 @@ public class UserController {
 			model.addAttribute("info", "用户权限不足");
 			return "info";
 		}
+	}
+	
+	@RequestMapping("/memberShow")
+	public String menberShow(HttpServletRequest request,Model model) {
+		String login = (String) request.getSession().getAttribute("login");
+		if (login != null && login.equals("success")) {
+			List<Customer> customerListAll = this.customerService.selectAll();
+			if (customerListAll != null) {
+				request.getSession().setAttribute("customerListAll", customerListAll);
+			}
+			return "manager/member/member_show";
+		}
+		model.addAttribute("info", "请完成登陆");
+		return "info";
+	}
+	
+	@RequestMapping("/memberDelete")
+	public String memberDelete(HttpServletRequest request,Model model) {
+		customer = (Customer) request.getSession().getAttribute("customer");	
+		String login = (String) request.getSession().getAttribute("login");
+		int id;
+		try {
+			id = Integer.parseInt(request.getParameter("id"));
+		} catch (Exception e) {
+			// 潜在问题
+			model.addAttribute("info","用户信息删除失败");
+			return "manager/member/member_changeInfo";
+		}
+		if (customer != null && login != null) {
+			if(id == customer.getId()){
+				model.addAttribute("info","无法删除自身账号");
+				return "manager/member/member_changeInfo";
+			}
+			int flag = customerService.deleteById(id);
+			if(flag == 0){
+				model.addAttribute("info","用户信息删除失败");
+				return "manager/member/member_changeInfo";
+			}
+			model.addAttribute("info","用户信息删除成功");
+			return "manager/member/member_changeInfo";
+		}
+		model.addAttribute("info", "请完成登陆");
+		return "info";
+	}
+	
+	@RequestMapping("/memberChange")
+	public String memberChange(HttpServletRequest request) {
+		//潜在问题
+		int id;
+		try {
+			id = Integer.parseInt(request.getParameter("id"));
+		} catch (Exception e) {
+			// 潜在问题
+			return "manager/member/memberShow";
+		}
+		Customer customerE = this.customerService.selectById(id);
+		if (customer == null) {
+			return "manager/member/memberShow";
+		}
+		request.getSession().setAttribute("customerE", customerE);
+		return "manager/member/member_change";
+	}
+	
+	
+	@RequestMapping("/memberChangeConfig")
+	public String memberChangeConfig(HttpServletRequest request,Model model) {
+		int id ;
+		try {
+			id = Integer.parseInt(request.getParameter("id"));
+		} catch (Exception e) {
+			// 潜在问题
+			model.addAttribute("info","用户信息修改失败");
+			return "manager/member/member_changeFailInfo";
+		}
+		String result = request.getParameter("result");
+		String question = request.getParameter("question");
+		String phone = request.getParameter("phone");
+		String sex = request.getParameter("sex");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		String name = request.getParameter("name");
+		String pow = request.getParameter("pow");
+		String issuedate = request.getParameter("issuedate");
+		
+		
+		Customer customerE = new Customer();
+		customerE.setId(id);
+		customerE.setName(name);
+		customerE.setEmail(email);
+		customerE.setSex(sex);
+		customerE.setPassword(password);
+		customerE.setPhone(phone);
+		customerE.setQuestion(question);
+		customerE.setResult(result);
+		customerE.setPow(pow);
+		customerE.setIssuedate(issuedate);
+
+		customer = (Customer) request.getSession().getAttribute("customer");	
+		String login = (String) request.getSession().getAttribute("login");
+
+		if (customer != null && login != null) {
+			int flag = customerService.updateById(customerE);
+			if(flag == 0){
+				model.addAttribute("info","用户信息更新失败");
+				return "manager/member/member_updateFailInfo";
+			}
+//			if(customerE.getId().equals(customer.getId())){
+//				model.addAttribute("info","用户信息更新成功,重新登陆");
+//				return "";
+//			}
+			model.addAttribute("info","用户信息更新成功");
+			return "manager/member/member_changeInfo";
+		}
+		model.addAttribute("info", "请完成登陆");
+		return "info";
 	}
 }

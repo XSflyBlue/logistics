@@ -30,7 +30,6 @@ public class CustomerServiceImpl implements ICustomerService {
 	}
 	
 	public int insertSelective(Customer record) {
-		// TODO Auto-generated method stub
 		return customerDao.insertSelective(record);
 	}
 }  

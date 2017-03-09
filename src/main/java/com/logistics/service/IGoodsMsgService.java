@@ -6,4 +6,6 @@ import com.logistics.model.GoodsMsg;
 public interface IGoodsMsgService {
 	public List< GoodsMsg > getGoodsMsgTop8();
 	public int insertSelective(GoodsMsg record);
+	public List<GoodsMsg> selectAll();
+	public GoodsMsg selectById(int id);
 }

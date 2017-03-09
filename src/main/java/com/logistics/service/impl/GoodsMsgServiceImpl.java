@@ -9,16 +9,17 @@ import org.springframework.stereotype.Service;
 import com.logistics.dao.GoodsMsgMapper;
 import com.logistics.model.GoodsMsg;
 import com.logistics.model.GoodsMsgExample;
+import com.logistics.model.Knowledge;
+import com.logistics.model.KnowledgeExample;
 import com.logistics.model.GoodsMsgExample.Criteria;
 import com.logistics.service.IGoodsMsgService;
 
-@Service("goodsMsgServiceService")  
+@Service("goodsMsgService")  
 public class GoodsMsgServiceImpl implements IGoodsMsgService {
 	@Resource
 	private GoodsMsgMapper goodsMsgDao;
 
 	public List<GoodsMsg> getGoodsMsgTop8() {
-		// TODO Auto-generated method stub
 		GoodsMsgExample example = new GoodsMsgExample();
 		Criteria criteria = example.createCriteria();
 		//排序分页未做
@@ -33,8 +34,22 @@ public class GoodsMsgServiceImpl implements IGoodsMsgService {
 	}
 
 	public int insertSelective(GoodsMsg record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return goodsMsgDao.insertSelective(record);
+	}
+
+	public List<GoodsMsg> selectAll() {
+		GoodsMsgExample example = new GoodsMsgExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andIdIsNotNull();
+		List<GoodsMsg> goodsListAll = goodsMsgDao.selectByExample(example);
+		if(goodsListAll.size()!=0){
+			return goodsListAll;
+		}
+		return null;
+	}
+
+	public GoodsMsg selectById(int id) {
+		return this.goodsMsgDao.selectByPrimaryKey(id);
 	}
 
 }

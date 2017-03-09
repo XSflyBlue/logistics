@@ -28,11 +28,11 @@
 					</th>
 					<th width="597" height="31" align="center"><a href="index"
 						class="a1">本站首页</a>&nbsp;|&nbsp;<a href="activeShow"
-						class="a1">物流动态</a>&nbsp;|&nbsp;<a href="knowledge_select.jsp"
-						class="a1">物流知识</a>&nbsp;|&nbsp;<a href="goods_select.jsp"
+						class="a1">物流动态</a>&nbsp;|&nbsp;<a href="knowledgeShow"
+						class="a1">物流知识</a>&nbsp;|&nbsp;<a href="goodsShow"
 						class="a1">货物信息</a>&nbsp;|&nbsp;<a href="car_select.jsp"
 						class="a1">车辆信息</a>&nbsp;|&nbsp;<a href="enterprise_select.jsp"
-						class="a1">企业信息</a>&nbsp;|&nbsp;<a href="tool_assistant.jsp"
+						class="a1">企业信息</a>&nbsp;|&nbsp;<a href=""
 						class="a1">辅助工具</a>&nbsp;|&nbsp;<a href="userLogout" class="a1">退出</a>&nbsp;|&nbsp;<a
 						href="userManager" class="a1">后台管理</a></th>
 				</tr>

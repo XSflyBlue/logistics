@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <link rel="stylesheet" href="CSS/style.css">
-<title>placard page</title>
+<title>active page</title>
 </head>
 <%! int code;
 	int pagesize = 10;

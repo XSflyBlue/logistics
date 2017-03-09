@@ -107,8 +107,8 @@
 		%>
 		<tr>
 			<td width="100%" height="45" colspan="4" align="center"><a
-				href="goodsChange?id=<%=code%>">ÐÞ¸Ä</a>&nbsp;&nbsp; <a
-				href="goodsDelete?id=<%=code%>">É¾³ý</a></td>
+				href="goodsChange?id=<%=goodsMsg.getId()%>">ÐÞ¸Ä</a>&nbsp;&nbsp; <a
+				href="goodsDelete?id=<%=goodsMsg.getId()%>">É¾³ý</a></td>
 		</tr>
 
 		<%

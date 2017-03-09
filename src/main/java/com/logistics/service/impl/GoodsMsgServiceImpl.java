@@ -52,4 +52,14 @@ public class GoodsMsgServiceImpl implements IGoodsMsgService {
 		return this.goodsMsgDao.selectByPrimaryKey(id);
 	}
 
+	public int updateById(GoodsMsg record) {
+		// TODO Auto-generated method stub
+		return this.goodsMsgDao.updateByPrimaryKeySelective(record);
+	}
+
+	public int deleteById(Integer id) {
+		// TODO Auto-generated method stub
+		return this.goodsMsgDao.deleteByPrimaryKey(id);
+	}
+
 }

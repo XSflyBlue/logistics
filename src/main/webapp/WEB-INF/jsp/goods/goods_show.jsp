@@ -12,19 +12,7 @@
 	int pagecount = 1;%>
 
 <body bgcolor="#ffffff">
-	<%
-		String login = (String) session.getAttribute("login");
-		if (login == null) {
-	%>
-	<script language="javascript">
-		alert("Äú»¹Î´µÇÂ¼£¬²»ÄÜä¯ÀÀÏêÏ¸ÐÅÏ¢£¡£¡£¡");
-	<%response.sendRedirect("index");%>
-		
-	</script>
-	<%
-		}
-		String username = (String) session.getAttribute("name");
-	%><jsp:include page="../top.jsp" />
+    <jsp:include page="../top.jsp" />
 	<table width="786" border="1" align="center" cellpadding="0"
 		cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#333333"
 		bordercolorlight="#FFFFFF">

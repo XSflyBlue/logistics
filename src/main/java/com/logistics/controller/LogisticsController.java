@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.logistics.model.Logistics;
@@ -18,15 +19,17 @@ public class LogisticsController {
 	private Logistics logistics;
 
 	@RequestMapping("/activeShow")
-	public String activeSelect(HttpServletRequest request) {
+	public String activeSelect(HttpServletRequest request,Model model) {
 		String login = (String) request.getSession().getAttribute("login");
-		if(login!=null&&login.equals("success")){
+		if (login != null && login.equals("success")) {
 			List<Logistics> logisticsList = this.logisticsService.selectAll();
 			if (logisticsList != null) {
 				request.getSession().setAttribute("logisticsList", logisticsList);
 			}
+			return "logistics/active_show";
 		}
-		return "logistics/active_show";
+		model.addAttribute("info", "请完成登陆");
+		return "info";
 	}
 
 	@RequestMapping("/activeDetail")

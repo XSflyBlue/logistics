@@ -8,4 +8,6 @@ public interface IGoodsMsgService {
 	public int insertSelective(GoodsMsg record);
 	public List<GoodsMsg> selectAll();
 	public GoodsMsg selectById(int id);
+	public int updateById(GoodsMsg record);
+	public int deleteById(Integer id);
 }

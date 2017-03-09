@@ -19,6 +19,8 @@
 </script>
 <body>
 	<center>
+
+
 		<table width="100%" border="0" align="center" cellpadding="0"
 			cellspacing="0">
 			<tr>
@@ -64,10 +66,10 @@
 						<h1>${info}<h1>
 					</div></td>
 				<h3>
-					<a href="index"><span id="jumpTo">5</span>秒后系统会自动跳转，也可点击本处直接跳</a>
+					<a href="goodsChange"><span id="jumpTo">5</span>秒后系统会自动跳转，也可点击本处直接跳</a>
 				</h3>
 				<script type="text/javascript">
-						countDown(3, 'index');
+						countDown(3, 'goodsChange');
 					</script>
 			</tr>
 		</table>

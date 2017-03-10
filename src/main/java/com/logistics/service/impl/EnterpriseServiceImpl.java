@@ -32,8 +32,30 @@ public class EnterpriseServiceImpl implements IEnterpriseService{
 	}
 
 	public int insertSelective(Enterprise record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return enterpriseDao.insertSelective(record);
+	}
+
+	public List<Enterprise> selectAll() {
+		EnterpriseExample example = new EnterpriseExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andIdIsNotNull();
+		List<Enterprise> enterpriseListAll = enterpriseDao.selectByExample(example);
+		if(enterpriseListAll.size()!=0){
+			return enterpriseListAll;
+		}
+		return null;
+	}
+
+	public Enterprise selectById(int id) {
+		return this.enterpriseDao.selectByPrimaryKey(id);
+	}
+
+	public int updateById(Enterprise record) {
+		return this.enterpriseDao.updateByPrimaryKeySelective(record);
+	}
+
+	public int deleteById(Integer id) {
+		return this.enterpriseDao.deleteByPrimaryKey(id);
 	}
 
 }

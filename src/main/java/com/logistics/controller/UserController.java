@@ -195,11 +195,11 @@ public class UserController {
 			id = Integer.parseInt(request.getParameter("id"));
 		} catch (Exception e) {
 			// 潜在问题
-			return "manager/member/memberShow";
+			return "manager/member/member_show";
 		}
 		Customer customerE = this.customerService.selectById(id);
 		if (customer == null) {
-			return "manager/member/memberShow";
+			return "manager/member/member_show";
 		}
 		request.getSession().setAttribute("customerE", customerE);
 		return "manager/member/member_change";

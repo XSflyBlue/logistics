@@ -60,8 +60,21 @@
 			<td width="108" height="32" align="center"><%=logistics.getTitle()%></td>
 			<td width="108" height="32" align="center"><%=logistics.getAuthor()%></td>
 			<td width="209" height="32" align="center"><%=logistics.getIssuedate()%></td>
+			<%
+				Customer customer = (Customer)session.getAttribute("customer");
+				if("2".equals(customer.getPow())){
+			%>
+			<td width="245" height="32" align="center"><a
+				href="activeChange?id=<%=logistics.getId()%>">ÐÞ¸Ä</a>&nbsp;&nbsp;
+				<a href="activeDelete?id=<%=logistics.getId()%>">É¾³ý</a></td>
+			<%
+				}else{
+			%>
 			<td width="245" height="32" align="center"><a href="#"
 				onClick="window.open('activeDetail?id=<%=code%>','','width=790,height=530');">ÏêÏ¸</a></td>
+			<%
+			}
+			%>
 		</tr>
 		<%
 				     }

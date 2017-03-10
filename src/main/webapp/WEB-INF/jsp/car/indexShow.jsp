@@ -15,7 +15,7 @@
 	<table width="370" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td width="36" height="25">&nbsp;</td>
-			<td width="334"><a href="goods_xiangxi?id=<%=carMsg.getCode()%>"> <%=carMsg.getLicencenumber()%>-
+			<td width="334"><a href="carDetail?id=<%=carMsg.getCode()%>"> <%=carMsg.getLicencenumber()%>-
 					-<%=carMsg.getLicencestyle()%>- -<%=carMsg.getStyle()%>-
 					-<%=carMsg.getCarload()%>- -<%=carMsg.getTransportstyle()%></a></td>
 		</tr>

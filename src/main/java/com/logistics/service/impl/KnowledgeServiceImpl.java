@@ -31,4 +31,12 @@ public class KnowledgeServiceImpl implements IKnowledgeService{
 		}
 		return null;
 	}
+
+	public int deleteById(Integer id) {
+		return this.knowledgeDao.deleteByPrimaryKey(id);
+	}
+
+	public int updateById(Knowledge knowledge) {
+		return this.knowledgeDao.updateByPrimaryKeySelective(knowledge);
+	}
 }

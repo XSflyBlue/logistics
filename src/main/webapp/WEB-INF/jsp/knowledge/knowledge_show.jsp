@@ -60,8 +60,22 @@
 			<td width="108" height="32" align="center"><%=knowledge.getTitle()%></td>
 			<td width="108" height="32" align="center"><%=knowledge.getIssuedate()%></td>
 			<td width="209" height="32" align="center"><%=knowledge.getAuthor()%></td>
+			
+			<%
+				Customer customer = (Customer)session.getAttribute("customer");
+				if("2".equals(customer.getPow())){
+			%>
+			<td width="245" height="32" align="center"><a
+				href="knowledgeChange?id=<%=knowledge.getId()%>">ÐÞ¸Ä</a>&nbsp;&nbsp;
+				<a href="knowledgeDelete?id=<%=knowledge.getId()%>">É¾³ý</a></td>
+			<%
+				}else{
+			%>
 			<td width="245" height="32" align="center"><a href="#"
 				onClick="window.open('knowledgeDetail?id=<%=code%>','','width=790,height=530');">ÏêÏ¸</a></td>
+			<%
+			}
+			%>
 		</tr>
 		<%
 				     }

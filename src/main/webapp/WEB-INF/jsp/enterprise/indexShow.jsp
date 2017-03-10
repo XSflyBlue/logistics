@@ -15,7 +15,7 @@
 	<table width="370" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td width="36" height="25">&nbsp;</td>
-			<td width="334"><a href="goods_xiangxi?id=<%=enterprise.getId()%>"> <%=enterprise.getOperation()%>-
+			<td width="334"><a href="enterpriseDetail?id=<%=enterprise.getId()%>"> <%=enterprise.getOperation()%>-
 					-<%=enterprise.getEnterprisename()%>- -<%=enterprise.getEnterprisesort()%>-
 					-<%=enterprise.getWorkarea()%></a></td>
 		</tr>

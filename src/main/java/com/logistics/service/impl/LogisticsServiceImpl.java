@@ -31,4 +31,12 @@ public class LogisticsServiceImpl implements ILogisticsService {
 		}
 		return null;
 	}
+
+	public int deleteById(int id) {
+		return this.logisticsDao.deleteByPrimaryKey(id);
+	}
+
+	public int updateById(Logistics logistics) {
+		return this.logisticsDao.updateByPrimaryKeySelective(logistics);
+	}
 }

@@ -32,8 +32,30 @@ public class CarServiceImpl implements ICarMsgService{
 	}
 
 	public int insertSelective(CarMessage record) {
-		// TODO Auto-generated method stub
-		return 0;
+		return carMsgDao.insertSelective(record);
+	}
+
+	public List<CarMessage> selectAll() {
+		CarMessageExample example = new CarMessageExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andCodeIsNotNull();
+		List<CarMessage> carListAll = carMsgDao.selectByExample(example);
+		if(carListAll.size()!=0){
+			return carListAll;
+		}
+		return null;
+	}
+
+	public CarMessage selectById(int id) {
+		return this.carMsgDao.selectByPrimaryKey(id);
+	}
+
+	public int updateById(CarMessage record) {
+		return this.carMsgDao.updateByPrimaryKeySelective(record);
+	}
+
+	public int deleteById(Integer id) {
+		return this.carMsgDao.deleteByPrimaryKey(id);
 	}
 
 }

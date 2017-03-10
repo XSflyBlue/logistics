@@ -30,4 +30,16 @@ public class PlacardServiceImpl implements IPlacardService{
 		return null;
 	}
 
+	public int insertSelective(Placard record) {
+		return placardDao.insertSelective(record);
+	}
+
+	public int updateById(Placard placard) {
+		return placardDao.updateByPrimaryKeySelective(placard);
+	}
+
+	public int deleteById(Integer id) {
+		// TODO Auto-generated method stub
+		return this.placardDao.deleteByPrimaryKey(id);
+	}
 }

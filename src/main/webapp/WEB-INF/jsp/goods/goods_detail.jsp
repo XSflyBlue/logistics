@@ -15,16 +15,11 @@
 	<%
 		login = (String) session.getAttribute("login");
 		Customer customer = (Customer) session.getAttribute("customer");
-		username = customer.getName();
 		if (customer == null || username == null || login == null) {
 	%>
-	<script language="javascript">
-		alert("Äú»¹Î´µÇÂ¼£¬²»ÄÜä¯ÀÀÏêÏ¸ÐÅÏ¢£¡£¡£¡");
-	<%response.sendRedirect("login");%>
-		
-	</script>
 	<%
 		}
+		username = customer.getName();
 	%>
 	<jsp:include page="../top.jsp" />
 	<table width="785" height="480" border="1" align="center"
@@ -103,7 +98,7 @@
 
 		</tr>
 		<%
-			if (userName.equals(username)) {
+			if (userName.equals(username) || "2".equals(customer.getPow())) {
 		%>
 		<tr>
 			<td width="100%" height="45" colspan="4" align="center"><a

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8"%>
+<%@ page import="java.util.List,com.logistics.model.*"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -71,7 +72,20 @@
 </Script>
 <body bgcolor="#ffffff">
 
-	<jsp:include page="../top.jsp" />
+	<%
+   		Customer customer = (Customer) session.getAttribute("customer");
+		if (customer != null && "2".equals(customer.getPow())) {
+	%>
+	<jsp:include page="../manager/mtop.jsp" flush="true"></jsp:include>
+	<%
+		}else {
+	%>
+	<jsp:include page="../top.jsp" flush="true"></jsp:include>
+	<%
+	}
+	%>
+
+
 	<p align="center">
 		<b>企业信息发布</b>
 	</p>
@@ -153,7 +167,7 @@
 				</td>
 			</tr>
 			<tr>
-				
+
 				<td width="18%" height="45">
 					<p align="center">传真号：</p>
 				</td>
@@ -162,14 +176,14 @@
 						<input type="text" name="eFax" size="20">
 					</p>
 				</td>
-				
+
 				<td width="20%" height="45">
 					<p align="center">电子邮箱：</p>
 				</td>
 				<td width="36%" height="45">
 
 					<p align="left">
-						 <input type="text" name="eEmail" size="20">
+						<input type="text" name="eEmail" size="20">
 					</p>
 				</td>
 			</tr>
@@ -191,8 +205,8 @@
 					</p>
 				</td>
 			</tr>
-			
-			
+
+
 			<tr>
 				<td width="786" height="58" colspan="4">
 					<p align="center">

@@ -71,7 +71,19 @@
 	}
 </Script>
 
-<body bgcolor="#ffffff"><jsp:include page="../top.jsp" />
+<body bgcolor="#ffffff">
+	<%
+   		Customer customer = (Customer) session.getAttribute("customer");
+		if (customer != null && "2".equals(customer.getPow())) {
+	%>
+	<jsp:include page="../manager/mtop.jsp" flush="true"></jsp:include>
+	<%
+		}else {
+	%>
+	<jsp:include page="../top.jsp" flush="true"></jsp:include>
+	<%
+	}
+	%>
 	<p align="center">
 		<b>企业信息修改</b>
 	</p>

@@ -1,9 +1,9 @@
-<%@ page contentType="text/html; charset=gb2312" language="java"
+<%@ page contentType="text/html; charset=utf-8" language="java"
 	import="java.util.List,com.logistics.model.*" errorPage=""%>
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="CSS/style.css">
 <title></title>
 </head>
@@ -13,14 +13,14 @@
 		cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#333333"
 		bordercolorlight="#FFFFFF">
 		<tr>
-			<td width="100%" height="39" align="center">╤╞л╛пео╒</td>
+			<td width="100%" height="39" align="center">Е┼╗Ф─│Д©║Ф│╞</td>
 		</tr>
 		<%
 			Logistics logistics = (Logistics) session.getAttribute("logistics");
 			if (logistics != null) {
 		%>
 		<tr>
-			<td width="100%" height="37">╠ЙлБё╨ <%=logistics.getTitle()%></td>
+			<td width="100%" height="37">Ф═┤И╒≤О╪  <%=logistics.getTitle()%></td>
 		</tr>
 		<tr>
 			<td width="100%" height="36"><textarea rows="20" name="content"
@@ -28,20 +28,20 @@
    <%=logistics.getContent()%></textarea></td>
 		</tr>
 		<tr>
-			<td width="100%" height="27">╥╒╡╪хк: <%=logistics.getAuthor()%></td>
+			<td width="100%" height="27">Е▐▒Е╦┐Д╨╨: <%=logistics.getAuthor()%></td>
 		</tr>
 		<tr>
-			<td width="100%" height="27">╥╒╡╪й╠╪Д: <%=logistics.getIssuedate()%></td>
+			<td width="100%" height="27">Е▐▒Е╦┐Ф≈╤И≈╢: <%=logistics.getIssuedate()%></td>
 		</tr>
 		<tr>
-			<td width="100%" height="27">ндуб╨е: <%=logistics.getId()%></td>
+			<td width="100%" height="27">Ф√┤Г╚═Е▐╥: <%=logistics.getId()%></td>
 		</tr>
 		<%
 			}
 		%>
 		<tr>
 			<td width="100%" height="20" align="center"><input type="button"
-				onClick="window.close()" value="╧ь╠у╢╟©з"></td>
+				onClick="window.close()" value="Е┘ЁИ≈╜Г╙≈Е▐ё"></td>
 		</tr>
 	</table>
 </body>

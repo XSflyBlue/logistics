@@ -22,7 +22,17 @@
 		}
 		username = customer.getName();
 	%>
-	<jsp:include page="../top.jsp" />
+	<%
+		if (customer != null && "2".equals(customer.getPow())) {
+	%>
+	<jsp:include page="../manager/mtop.jsp" flush="true"></jsp:include>
+	<%
+		}else {
+	%>
+	<jsp:include page="../top.jsp" flush="true"></jsp:include>
+	<%
+	}
+	%>
 	<table width="785" height="480" border="1" align="center"
 		cellpadding="0" cellspacing="0" bordercolor="#FFFFFF"
 		bordercolordark="#333333" bordercolorlight="#FFFFFF">
@@ -75,7 +85,7 @@
 			<td width="17%" height="31" align="center">发布时间：</td>
 			<td width="36%" height="31" align="left"><%=enterprise.getIssuedate()%></td>
 			<%
-				userName = customer.getName();
+				userName = enterprise.getUsername();
 			%>
 			<td width="17%" height="31" align="center">发布人：</td>
 			<td width="30%" height="31" align="left"><%=userName%></td>

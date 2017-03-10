@@ -1,8 +1,8 @@
-<%@ page contentType="text/html; charset=gb2312" language="java"%>
+<%@ page contentType="text/html; charset=utf-8" language="java"%>
 <%@ page import="java.util.List,com.logistics.model.*"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="CSS/style.css">
 <title>car_xiangxi page</title>
 </head>
@@ -22,62 +22,74 @@
 		}
 		username = customer.getName();
 	%>
-	<jsp:include page="../top.jsp" />
+	<%
+		if (customer != null && "2".equals(customer.getPow())) {
+	%>
+	<jsp:include page="../manager/mtop.jsp" flush="true"></jsp:include>
+	<%
+		}else {
+	%>
+	<jsp:include page="../top.jsp" flush="true"></jsp:include>
+	<%
+	}
+	%>
+
+
 	<table width="785" height="480" border="1" align="center"
 		cellpadding="0" cellspacing="0" bordercolor="#FFFFFF"
 		bordercolordark="#333333" bordercolorlight="#FFFFFF">
 		<tr>
-			<td width="100%" height="52" colspan="4" align="center">³µÁ¾ÐÅÏ¢Õ¹Ê¾</td>
+			<td width="100%" height="52" colspan="4" align="center">è½¦è¾†ä¿¡æ¯å±•ç¤º</td>
 		</tr>
 		<%
 			CarMessage carMessage = (CarMessage) session.getAttribute("carMessage");
 			if (carMessage != null) {
 		%>
 		<tr>
-			<td width="17%" height="29" align="center">³µÅÆºÅ</td>
+			<td width="17%" height="29" align="center">è½¦ç‰Œå·</td>
 			<td width="36%" height="29" align="center"><%=carMessage.getLicencenumber()%></td>
-			<td width="17%" height="29" align="center" valign="middle">³µÆ·Ãû</td>
+			<td width="17%" height="29" align="center" valign="middle">è½¦å“å</td>
 			<td width="30%" height="29" align="center"><%=carMessage.getBrand()%></td>
 		</tr>
 		<tr>
-			<td width="17%" height="29" align="center">³µÁ¾ÀàÐÍ</td>
+			<td width="17%" height="29" align="center">è½¦è¾†ç±»åž‹</td>
 			<td width="36%" height="29" align="center"><%=carMessage.getStyle()%>
 			</td>
-			<td width="17%" height="29" align="center" valign="middle">³µÁ¾ÔØÖØ</td>
+			<td width="17%" height="29" align="center" valign="middle">è½¦è¾†è½½é‡</td>
 			<td width="30%" height="29" align="center"><%=carMessage.getCarload()%></td>
 		</tr>
 		<tr>
-			<td width="17%" height="29" align="center">Ê¹ÓÃÊ±¼ä</td>
+			<td width="17%" height="29" align="center">ä½¿ç”¨æ—¶é—´</td>
 			<td width="36%" height="29" align="center"><%=carMessage.getUsedtime()%></td>
-			<td width="17%" height="29" align="center" valign="middle">¼ÝÊ»Ô±ÐÕÃû</td>
+			<td width="17%" height="29" align="center" valign="middle">é©¾é©¶å‘˜å§“å</td>
 			<td width="30%" height="29" align="center"><%=carMessage.getDrivername()%></td>
 		</tr>
 		<tr>
-			<td width="17%" height="29" align="center">¼ÝÊ»Ê±¼ä</td>
+			<td width="17%" height="29" align="center">é©¾é©¶æ—¶é—´</td>
 			<td width="36%" height="29" align="center"><%=carMessage.getDrivertime()%></td>
-			<td width="17%" height="29" align="center" valign="middle">¼ÝÕÕºÅÂë</td>
+			<td width="17%" height="29" align="center" valign="middle">é©¾ç…§å·ç </td>
 			<td width="30%" height="29" align="center"><%=carMessage.getLicencenumber()%></td>
 		</tr>
 		<tr>
-			<td width="17%" height="30" align="center">¼ÝÕÕÀàÐÍ</td>
+			<td width="17%" height="30" align="center">é©¾ç…§ç±»åž‹</td>
 			<td width="36%" height="30" align="center"><%=carMessage.getLicencestyle()%></td>
-			<td width="17%" height="30" align="center" valign="middle">ÔËÊäÀàÐÍ</td>
+			<td width="17%" height="30" align="center" valign="middle">è¿è¾“ç±»åž‹</td>
 			<td width="30%" height="30" align="center"><%=carMessage.getTransportstyle()%></td>
 		</tr>
 		<tr>
-			<td width="17%" height="29" align="center">ÁªÏµÈË</td>
+			<td width="17%" height="29" align="center">è”ç³»äºº</td>
 			<td width="36%" height="29" align="center"><%=carMessage.getLinkman()%></td>
-			<td width="17%" height="29" align="center" valign="middle">ÁªÏµµç»°</td>
+			<td width="17%" height="29" align="center" valign="middle">è”ç³»ç”µè¯</td>
 			<td width="30%" height="29" align="center"><%=carMessage.getLinkphone()%>
 			</td>
 		</tr>
 		<tr>
-			<td width="17%" height="31" align="center">·¢²¼Ê±¼ä£º</td>
+			<td width="17%" height="31" align="center">å‘å¸ƒæ—¶é—´ï¼š</td>
 			<td width="36%" height="31" align="left" colspan="3"><%=carMessage.getIssuedate()%></td>
 
 		</tr>
 		<tr>
-			<td width="17%" height="1" align="center">±¸×¢£º</td>
+			<td width="17%" height="1" align="center">å¤‡æ³¨ï¼š</td>
 			<td width="83%" height="1" align="center" colspan="3">
 				<p align="left">
 					<textarea rows="3" name="S1" cols="76"><%=carMessage.getRemark()%></textarea>
@@ -86,9 +98,9 @@
 
 		<tr>
 			<%
-				userName = customer.getName();
+				userName = carMessage.getUserdate();
 			%>
-			<td width="17%" height="31" align="center">·¢²¼ÈË£º</td>
+			<td width="17%" height="31" align="center">å‘å¸ƒäººï¼š</td>
 			<td width="36%" height="31" align="left" colspan="3"><%=userName%></td>
 
 		</tr>
@@ -97,8 +109,8 @@
 		%>
 		<tr>
 			<td width="100%" height="45" colspan="4" align="center"><a
-				href="carChange?id=<%=carMessage.getCode()%>">ÐÞ¸Ä</a>&nbsp;&nbsp; <a
-				href="carDelete?id=<%=carMessage.getCode()%>">É¾³ý</a></td>
+				href="carChange?id=<%=carMessage.getCode()%>">ä¿®æ”¹</a>&nbsp;&nbsp; <a
+				href="carDelete?id=<%=carMessage.getCode()%>">åˆ é™¤</a></td>
 		</tr>
 
 		<%

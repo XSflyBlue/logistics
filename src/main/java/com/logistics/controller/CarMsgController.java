@@ -123,7 +123,7 @@ public class CarMsgController {
 	}
 
 	@RequestMapping("/carChangeConfig")
-	public String goodsChangeConfig(HttpServletRequest request, Model model) {
+	public String carChangeConfig(HttpServletRequest request, Model model) {
 		int id;
 		try {
 			id = Integer.parseInt(request.getParameter("code"));

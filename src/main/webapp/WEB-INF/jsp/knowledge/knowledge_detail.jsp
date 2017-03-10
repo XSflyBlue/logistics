@@ -1,9 +1,9 @@
-<%@ page contentType="text/html; charset=gb2312" language="java"
+<%@ page contentType="text/html; charset=utf-8" language="java"
 	import="java.util.List,com.logistics.model.*" errorPage=""%>
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="CSS/style.css">
 <title></title>
 </head>
@@ -13,14 +13,14 @@
 		cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#333333"
 		bordercolorlight="#FFFFFF">
 		<tr>
-			<td width="100%" height="39" align="center">����֪ʶ</td>
+			<td width="100%" height="39" align="center">物流知识</td>
 		</tr>
 		<%
 			Knowledge knowledge = (Knowledge) session.getAttribute("knowledge");
 			if (knowledge != null) {
 		%>
 		<tr>
-			<td width="100%" height="37">���⣺ <%=knowledge.getTitle()%></td>
+			<td width="100%" height="37">标题： <%=knowledge.getTitle()%></td>
 		</tr>
 		<tr>
 			<td width="100%" height="36"><textarea rows="20" name="content"
@@ -28,20 +28,20 @@
    <%=knowledge.getContent()%></textarea></td>
 		</tr>
 		<tr>
-			<td width="100%" height="27">������: <%=knowledge.getAuthor()%></td>
+			<td width="100%" height="27">发布人: <%=knowledge.getAuthor()%></td>
 		</tr>
 		<tr>
-			<td width="100%" height="27">����ʱ��: <%=knowledge.getIssuedate()%></td>
+			<td width="100%" height="27">发布时间: <%=knowledge.getIssuedate()%></td>
 		</tr>
 		<tr>
-			<td width="100%" height="27">���º�: <%=knowledge.getId()%></td>
+			<td width="100%" height="27">文章号: <%=knowledge.getId()%></td>
 		</tr>
 		<%
 			}
 		%>
 		<tr>
 			<td width="100%" height="20" align="center"><input type="button"
-				onClick="window.close()" value="�رմ���"></td>
+				onClick="window.close()" value="关闭窗口"></td>
 		</tr>
 	</table>
 </body>

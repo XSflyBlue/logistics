@@ -12,7 +12,18 @@
 	int pagecount = 1;%>
 
 <body bgcolor="#ffffff">
-    <jsp:include page="../top.jsp" />
+    <%
+   		Customer customer = (Customer) session.getAttribute("customer");
+		if (customer != null && "2".equals(customer.getPow())) {
+	%>
+	<jsp:include page="../manager/mtop.jsp" flush="true"></jsp:include>
+	<%
+		}else {
+	%>
+	<jsp:include page="../top.jsp" flush="true"></jsp:include>
+	<%
+	}
+	%>
 	<table width="786" border="1" align="center" cellpadding="0"
 		cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#333333"
 		bordercolorlight="#FFFFFF">

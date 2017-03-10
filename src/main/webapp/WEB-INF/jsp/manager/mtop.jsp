@@ -1,6 +1,6 @@
-<%@ page contentType="text/html; charset=gb2312" language="java"
+<%@ page contentType="text/html; charset=utf-8" language="java"
 	import="java.sql.*" errorPage=""%>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <table width="100%" height="78" border="0" cellpadding="0"
 	cellspacing="0" background="image/bg-1.jpg">
@@ -20,16 +20,16 @@
 				align="center" cellpadding="0" cellspacing="0"
 				background="image/bg-4.jpg">
 				<tr>
-					<th><a href="index.jsp" class="a1">Ê×Ò³</a> |&nbsp;
-					    <a href="" class="a1">ÎïÁ÷¶¯Ì¬¹ÜÀí</a>&nbsp;| 
-						<a href="" class="a1">ÎïÁ÷ÖªÊ¶¹ÜÀí</a>&nbsp;|&nbsp;
-						<a href="goodsShow" class="a1">»õÎï¹ÜÀí</a>&nbsp;|&nbsp;
-						<a href="carShow" class="a1">³µÁ¾¹ÜÀí</a>&nbsp;|&nbsp;
-						<a href="enterpriseShow" class="a1">ÆóÒµ¹ÜÀí</a>&nbsp;|&nbsp;&nbsp;
-						<a href="placardShow" class="a1">¹«¸æ¹ÜÀí</a>&nbsp;|&nbsp;
-						<a href="memberShow" class="a1">»áÔ±¹ÜÀí</a>&nbsp;|&nbsp;
-						<a href="#" class="a1">¸¨Öú¹¤¾ß</a>&nbsp;|&nbsp;
-						<a href="index" class="a1">ÍË³ö</a></th>
+					<th><a href="index" class="a1">é¦–é¡µ</a> |&nbsp;
+					    <a href="activeShow" class="a1">ç‰©æµåŠ¨æ€ç®¡ç†</a>&nbsp;| 
+						<a href="knowledgeShow" class="a1">ç‰©æµçŸ¥è¯†ç®¡ç†</a>&nbsp;|&nbsp;
+						<a href="goodsShow" class="a1">è´§ç‰©ç®¡ç†</a>&nbsp;|&nbsp;
+						<a href="carShow" class="a1">è½¦è¾†ç®¡ç†</a>&nbsp;|&nbsp;
+						<a href="enterpriseShow" class="a1">ä¼ä¸šç®¡ç†</a>&nbsp;|&nbsp;&nbsp;
+						<a href="placardShow" class="a1">å…¬å‘Šç®¡ç†</a>&nbsp;|&nbsp;
+						<a href="memberShow" class="a1">ä¼šå‘˜ç®¡ç†</a>&nbsp;|&nbsp;
+						<a href="#" class="a1">è¾…åŠ©å·¥å…·</a>&nbsp;|&nbsp;
+						<a href="index" class="a1">é€€å‡º</a></th>
 				</tr>
 			</table></td>
 	</tr>

@@ -1,9 +1,9 @@
-<%@ page contentType="text/html; charset=gb2312" language="java"
+<%@ page contentType="text/html; charset=utf-8" language="java"
 	import="java.util.List,com.logistics.model.*" errorPage=""%>
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="CSS/style.css">
 <title></title>
 </head>
@@ -13,14 +13,14 @@
 		cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#333333"
 		bordercolorlight="#FFFFFF">
 		<tr>
-			<td width="100%" height="39" align="center">¹«¸æ</td>
+			<td width="100%" height="39" align="center">å…¬å‘Š</td>
 		</tr>
 		<%
 			Placard placard = (Placard) session.getAttribute("placard");
 			if (placard != null) {
 		%>
 		<tr>
-			<td width="100%" height="37">±êÌâ£º <%=placard.getTitle()%></td>
+			<td width="100%" height="37">æ ‡é¢˜ï¼š <%=placard.getTitle()%></td>
 		</tr>
 		<tr>
 			<td width="100%" height="36"><textarea rows="20" name="content"
@@ -28,20 +28,20 @@
    <%=placard.getContent()%></textarea></td>
 		</tr>
 		<tr>
-			<td width="100%" height="27">·¢²¼ÈË: <%=placard.getAuthor()%></td>
+			<td width="100%" height="27">å‘å¸ƒäºº: <%=placard.getAuthor()%></td>
 		</tr>
 		<tr>
-			<td width="100%" height="27">·¢²¼Ê±¼ä: <%=placard.getIssuedate()%></td>
+			<td width="100%" height="27">å‘å¸ƒæ—¶é—´: <%=placard.getIssuedate()%></td>
 		</tr>
 		<tr>
-			<td width="100%" height="27">ÎÄÕÂºÅ: <%=placard.getId()%></td>
+			<td width="100%" height="27">æ–‡ç« å·: <%=placard.getId()%></td>
 		</tr>
 		<%
 			}
 		%>
 		<tr>
 			<td width="100%" height="20" align="center"><input type="button"
-				onClick="window.close()" value="¹Ø±Õ´°¿Ú"></td>
+				onClick="window.close()" value="å…³é—­çª—å£"></td>
 		</tr>
 	</table>
 </body>

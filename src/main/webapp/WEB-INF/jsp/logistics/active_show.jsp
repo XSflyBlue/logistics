@@ -1,8 +1,8 @@
-<%@ page contentType="text/html; charset=gb2312"%>
+<%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.List,com.logistics.model.*"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="CSS/style.css">
 <title>active page</title>
 </head>
@@ -12,19 +12,30 @@
 	int pagecount = 1;%>
 
 <body bgcolor="#ffffff">
-    <jsp:include page="../top.jsp" />
+    <%
+   		Customer customer = (Customer) session.getAttribute("customer");
+		if (customer != null && "2".equals(customer.getPow())) {
+	%>
+	<jsp:include page="../manager/mtop.jsp" flush="true"></jsp:include>
+	<%
+		}else {
+	%>
+	<jsp:include page="../top.jsp" flush="true"></jsp:include>
+	<%
+	}
+	%>
 	<table width="785" height="117" border="1" align="center"
 		cellpadding="0" cellspacing="0" bordercolor="#FFFFFF"
 		bordercolordark="#333333" bordercolorlight="#FFFFFF">
 		<tr>
-			<td height="38" align="center" colspan="6">¶¯Ì¬ĞÅÏ¢</td>
+			<td height="38" align="center" colspan="6">åŠ¨æ€ä¿¡æ¯</td>
 		</tr>
 		<tr>
 			<td width="108" height="29" align="center">ID</td>
-			<td width="108" height="29" align="center">±êÌâ</td>
-			<td width="108" height="29" align="center">×÷Õß</td>
-			<td width="209" height="29" align="center">·¢²¼ÈÕÆÚ</td>
-			<td width="245" height="29" align="center">²Ù×÷</td>
+			<td width="108" height="29" align="center">æ ‡é¢˜</td>
+			<td width="108" height="29" align="center">ä½œè€…</td>
+			<td width="209" height="29" align="center">å‘å¸ƒæ—¥æœŸ</td>
+			<td width="245" height="29" align="center">æ“ä½œ</td>
 
 		</tr>
 		<%
@@ -32,7 +43,7 @@
 			if (logisticsList==null ||logisticsList.size() == 0) {
 		%>
 		<script language="javascript">
-			alert("Ã»ÓĞĞÅÏ¢");
+			alert("æ²¡æœ‰ä¿¡æ¯");
 			history.back();
 		</script>
 		<%
@@ -61,17 +72,16 @@
 			<td width="108" height="32" align="center"><%=logistics.getAuthor()%></td>
 			<td width="209" height="32" align="center"><%=logistics.getIssuedate()%></td>
 			<%
-				Customer customer = (Customer)session.getAttribute("customer");
 				if("2".equals(customer.getPow())){
 			%>
 			<td width="245" height="32" align="center"><a
-				href="activeChange?id=<%=logistics.getId()%>">ĞŞ¸Ä</a>&nbsp;&nbsp;
-				<a href="activeDelete?id=<%=logistics.getId()%>">É¾³ı</a></td>
+				href="activeChange?id=<%=logistics.getId()%>">ä¿®æ”¹</a>&nbsp;&nbsp;
+				<a href="activeDelete?id=<%=logistics.getId()%>">åˆ é™¤</a></td>
 			<%
 				}else{
 			%>
 			<td width="245" height="32" align="center"><a href="#"
-				onClick="window.open('activeDetail?id=<%=code%>','','width=790,height=530');">ÏêÏ¸</a></td>
+				onClick="window.open('activeDetail?id=<%=code%>','','width=790,height=530');">è¯¦ç»†</a></td>
 			<%
 			}
 			%>
@@ -84,11 +94,11 @@
 
 				<table width="786" align="center" cellpadding="0" cellspacing="0">
 					<tr>
-						<td width="786" height="30" colspan="9" align="right">¹²<%=pagecount%>Ò³&nbsp;&nbsp;
-							<a href="activeShow?topage=<%=1%>">µÚÒ»Ò³</a>&nbsp;&nbsp; <a
-							href="activeShow?topage=<%=showpage - 1%>">ÉÏÒ»Ò³</a>&nbsp;&nbsp;
-							<a href="activeShow?topage=<%=showpage + 1%>">ÏÂÒ»Ò³</a>&nbsp;&nbsp;
-							<a href="activeShow?topage=<%=pagecount%>">×îºóÒ»Ò³</a>
+						<td width="786" height="30" colspan="9" align="right">å…±<%=pagecount%>é¡µ&nbsp;&nbsp;
+							<a href="activeShow?topage=<%=1%>">ç¬¬ä¸€é¡µ</a>&nbsp;&nbsp; <a
+							href="activeShow?topage=<%=showpage - 1%>">ä¸Šä¸€é¡µ</a>&nbsp;&nbsp;
+							<a href="activeShow?topage=<%=showpage + 1%>">ä¸‹ä¸€é¡µ</a>&nbsp;&nbsp;
+							<a href="activeShow?topage=<%=pagecount%>">æœ€åä¸€é¡µ</a>
 						</td>
 					</tr>
 				</table>

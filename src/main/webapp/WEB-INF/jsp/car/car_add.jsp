@@ -1,74 +1,75 @@
-<%@ page contentType="text/html; charset=gb2312"%>
+<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page import="java.util.List,com.logistics.model.*"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="CSS/style.css">
 <title>Car page</title>
 </head>
 <Script language="javascript">
 	function check() {
 		if (form1.cLicenseNumber.value == "") {
-			alert("ÇëÌîĞ´³µÅÆºÅÂë£¡£¡");
+			alert("è¯·å¡«å†™è½¦ç‰Œå·ç ï¼ï¼");
 			form1.cLicenseNumber.focus();
 			return false;
 		}
 		if (form1.cStyle.value == "") {
-			alert("ÇëÌîĞ´³µÁ¾ÀàĞÍ£¡£¡£¡");
+			alert("è¯·å¡«å†™è½¦è¾†ç±»å‹ï¼ï¼ï¼");
 			form1.cStyle.focus();
 			return false;
 		}
 		if (form1.cBrand.value == "") {
-			alert("ÇëÌîĞ´³µÁ¾Æ·Ãû£¡£¡£¡");
+			alert("è¯·å¡«å†™è½¦è¾†å“åï¼ï¼ï¼");
 			form1.cBrand.focus();
 			return false;
 		}
 		if (form1.cCarLoad.value == "") {
-			alert("ÇëÌîĞ´³µÁ¾ÏŞÁ¿£¡£¡£¡");
+			alert("è¯·å¡«å†™è½¦è¾†é™é‡ï¼ï¼ï¼");
 			form1.cCarLoad.focus();
 			return false;
 		}
 		if (form1.cUsedTime.value == "") {
-			alert("ÇëÌîĞ´ÒÑÊ¹ÓÃÄêÏŞ£¡£¡£¡");
+			alert("è¯·å¡«å†™å·²ä½¿ç”¨å¹´é™ï¼ï¼ï¼");
 			form1.cUsedTime.focus();
 			return false;
 		}
 		if (form1.cTransportStyle.value == "") {
-			alert("ÇëÑ¡ÔñÔËÊäÀàĞÍ£¡£¡£¡");
+			alert("è¯·é€‰æ‹©è¿è¾“ç±»å‹ï¼ï¼ï¼");
 			form1.cTransportStyle.focus();
 			return false;
 		}
 		if (form1.cDriverName.value == "") {
-			alert("ÇëÌîĞ´¼İÊ»Ô±ĞÕÃû£¡£¡£¡");
+			alert("è¯·å¡«å†™é©¾é©¶å‘˜å§“åï¼ï¼ï¼");
 			form1.cDriverName.focus();
 			return false;
 		}
 		if (form1.cLicenseNum.value == "") {
-			alert("ÇëÌîĞ´¼İÊ»Ö¤ºÅÂë£¡£¡£¡");
+			alert("è¯·å¡«å†™é©¾é©¶è¯å·ç ï¼ï¼ï¼");
 			form1.cLicenseNum.focus();
 			return false;
 		}
 		if (form1.cDriverTime.value == "") {
-			alert("ÇëÌîĞ´¼İÊ»Ô±¼İÁä£¡£¡£¡");
+			alert("è¯·å¡«å†™é©¾é©¶å‘˜é©¾é¾„ï¼ï¼ï¼");
 			form1.cDriverTime.focus();
 			return false;
 		}
 		if (form1.cLicenseStyle.value == "") {
-			alert("ÇëÌîĞ´¼İÊ»ÀàĞÍ£¡£¡£¡");
+			alert("è¯·å¡«å†™é©¾é©¶ç±»å‹ï¼ï¼ï¼");
 			form1.cLicenseStyle.focus();
 			return false;
 		}
 		if (form1.cLinkMan.value == "") {
-			alert("ÇëÌîĞ´ÁªÏµÈË£¡£¡£¡");
+			alert("è¯·å¡«å†™è”ç³»äººï¼ï¼ï¼");
 			form1.cLinkMan.focus();
 			return false;
 		}
 		if (form1.cLinkPhone.value == "") {
-			alert("ÇëÌîĞ´ÁªÏµµç»°£¡£¡£¡");
+			alert("è¯·å¡«å†™è”ç³»ç”µè¯ï¼ï¼ï¼");
 			form1.cLinkPhone.focus();
 			return false;
 		}
 		if (form1.cRemark.value == "") {
-			alert("ÇëÌîĞ´±¸×¢£¡£¡£¡");
+			alert("è¯·å¡«å†™å¤‡æ³¨ï¼ï¼ï¼");
 			form1.cRemark.focus();
 			return false;
 		}
@@ -76,10 +77,20 @@
 	}
 </Script>
 <body bgcolor="#ffffff">
-
-	<jsp:include page="../top.jsp" />
+	<%
+   		Customer customer = (Customer) session.getAttribute("customer");
+		if (customer != null && "2".equals(customer.getPow())) {
+	%>
+	<jsp:include page="../manager/mtop.jsp" flush="true"></jsp:include>
+	<%
+		}else {
+	%>
+	<jsp:include page="../top.jsp" flush="true"></jsp:include>
+	<%
+	}
+	%>
 	<p align="center">
-		<b>³µÁ¾ĞÅÏ¢·¢²¼</b>
+		<b>è½¦è¾†ä¿¡æ¯å‘å¸ƒ</b>
 	</p>
 	<form method="POST" action="carConfig" name="form1">
 		<table width="786" border="1" align="center" cellpadding="0"
@@ -87,7 +98,7 @@
 			bordercolorlight="#FFFFFF">
 			<tr>
 				<td width="20%" height="43">
-					<p align="center">³µÅÆºÅÂë£º</p>
+					<p align="center">è½¦ç‰Œå·ç ï¼š</p>
 				</td>
 				<td width="36%" height="43">
 					<p align="left">
@@ -95,7 +106,7 @@
 					</p>
 				</td>
 				<td width="18%" height="43">
-					<p align="center">³µÁ¾ÀàĞÍ£º</p>
+					<p align="center">è½¦è¾†ç±»å‹ï¼š</p>
 				</td>
 				<td width="30%" height="43">
 					<p align="left">
@@ -105,7 +116,7 @@
 			</tr>
 			<tr>
 				<td width="20%" height="42">
-					<p align="center">³µÁ¾Æ·Ãû£º</p>
+					<p align="center">è½¦è¾†å“åï¼š</p>
 				</td>
 				<td width="36%" height="42">
 					<p align="left">
@@ -113,17 +124,17 @@
 					</p>
 				</td>
 				<td width="18%" height="42">
-					<p align="center">³µÁ¾ÏŞÁ¿£º</p>
+					<p align="center">è½¦è¾†é™é‡ï¼š</p>
 				</td>
 				<td width="30%" height="42">
 					<p align="left">
-						<input type="text" name="cCarLoad" size="20">¶Ö
+						<input type="text" name="cCarLoad" size="20">å¨
 					</p>
 				</td>
 			</tr>
 			<tr>
 				<td width="20%" height="43">
-					<p align="center">ÒÑÊ¹ÓÃÄêÏŞ£º</p>
+					<p align="center">å·²ä½¿ç”¨å¹´é™ï¼š</p>
 				</td>
 				<td width="36%" height="43">
 					<p align="left">
@@ -131,14 +142,14 @@
 					</p>
 				</td>
 				<td width="20%" height="45">
-					<p align="center">ÔËÊäÀàĞÍ£º</p>
+					<p align="center">è¿è¾“ç±»å‹ï¼š</p>
 				</td>
 				<td width="36%" height="45">
 
 					<p align="left">
 						<select size="1" name="cTransportStyle">
-							<option value="³¤Í¾" selected>³¤Í¾</option>
-							<option value="¶ÌÍ¾">¶ÌÍ¾</option>
+							<option value="é•¿é€”" selected>é•¿é€”</option>
+							<option value="çŸ­é€”">çŸ­é€”</option>
 							
 						</select>
 					</p>
@@ -146,7 +157,7 @@
 			</tr>
 			<tr>
 				<td width="20%" height="46">
-					<p align="center">¼İÊ»Ô±ĞÕÃû£º</p>
+					<p align="center">é©¾é©¶å‘˜å§“åï¼š</p>
 				</td>
 				<td width="36%" height="46">
 					<p align="left">
@@ -154,7 +165,7 @@
 					</p>
 				</td>
 				<td width="18%" height="46">
-					<p align="center">¼İÊ»Ö¤ºÅÂë£º</p>
+					<p align="center">é©¾é©¶è¯å·ç ï¼š</p>
 				</td>
 				<td width="30%" height="46">
 					<p align="left">
@@ -165,7 +176,7 @@
 			<tr>
 				
 				<td width="18%" height="45">
-					<p align="center">¼İÊ»Ô±¼İÁä£º</p>
+					<p align="center">é©¾é©¶å‘˜é©¾é¾„ï¼š</p>
 				</td>
 				<td width="30%" height="45">
 					<p align="left">
@@ -174,7 +185,7 @@
 				</td>
 				
 				<td width="20%" height="45">
-					<p align="center">¼İÊ»ÀàĞÍ£º</p>
+					<p align="center">é©¾é©¶ç±»å‹ï¼š</p>
 				</td>
 				<td width="36%" height="45">
 
@@ -189,7 +200,7 @@
 			</tr>
 			<tr>
 				<td width="20%" height="45">
-					<p align="center">ÁªÏµµç»°£º</p>
+					<p align="center">è”ç³»ç”µè¯ï¼š</p>
 				</td>
 				<td width="36%" height="45">
 					<p align="left">
@@ -197,7 +208,7 @@
 					</p>
 				</td>
 				<td width="18%" height="45">
-					<p align="center">ÁªÏµÈË£º</p>
+					<p align="center">è”ç³»äººï¼š</p>
 				</td>
 				<td width="30%" height="45">
 					<p align="left">
@@ -207,7 +218,7 @@
 			</tr>
 			<tr>
 				<td width="20%" height="78">
-					<p align="center">±¸×¢£º</p>
+					<p align="center">å¤‡æ³¨ï¼š</p>
 				</td>
 				<td width="84%" height="78" colspan="3">
 					<p align="left">
@@ -219,10 +230,10 @@
 			<tr>
 				<td width="786" height="58" colspan="4">
 					<p align="center">
-						<input type="submit" name="show" value="·¢²¼"
+						<input type="submit" name="show" value="å‘å¸ƒ"
 							onClick="return check()"> <input type="reset"
-							name="reset" value="ÖØÖÃ"> &nbsp;&nbsp;<a
-							href="carShow">·µ»Ø</a>
+							name="reset" value="é‡ç½®"> &nbsp;&nbsp;<a
+							href="carShow">è¿”å›</a>
 				</td>
 			</tr>
 		</table>

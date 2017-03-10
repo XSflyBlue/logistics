@@ -8,14 +8,7 @@
 <title>Manager_index page</title>
 </head>
 <body bgcolor="#ffffff">
-	<%
-		Customer customer = (Customer) session.getAttribute("customer");
-		if (customer == null || "1".equals(customer.getPow())) {
-	%>
-	<jsp:include page="../top.jsp" flush="true"></jsp:include>
-	<%
-		}
-	%>
+	
 	<jsp:include page="mtop.jsp" flush="true"></jsp:include>
 
 	<table width="100%" height="31" border="0" cellpadding="0"

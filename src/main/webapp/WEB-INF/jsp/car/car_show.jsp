@@ -12,7 +12,18 @@
 	int pagecount = 1;%>
 
 <body bgcolor="#ffffff">
-    <jsp:include page="../top.jsp" />
+	<%
+   		Customer customer = (Customer) session.getAttribute("customer");
+		if (customer != null && "2".equals(customer.getPow())) {
+	%>
+	<jsp:include page="../manager/mtop.jsp" flush="true"></jsp:include>
+	<%
+		}else {
+	%>
+	<jsp:include page="../top.jsp" flush="true"></jsp:include>
+	<%
+	}
+	%>
 	<table width="786" border="1" align="center" cellpadding="0"
 		cellspacing="0" bordercolor="#FFFFFF" bordercolordark="#333333"
 		bordercolorlight="#FFFFFF">
@@ -35,7 +46,7 @@
 			<td width="786" height="29" align="center">驾驶员驾龄</td>
 			<td width="786" height="29" align="center">运输类型</td>
 			<td width="786" height="29" align="center">操作</td>
-			
+
 		</tr>
 		<%
 			List<CarMessage> carMsgListAll = (List<CarMessage>) session.getAttribute("carMsgListAll");
@@ -88,9 +99,9 @@
 					<tr>
 						<td width="786" height="30" colspan="9" align="right">共<%=pagecount%>页&nbsp;&nbsp;
 							<a href="carShow?topage=<%=1%>">第一页</a>&nbsp;&nbsp; <a
-							href="carShow?topage=<%=showpage - 1%>">上一页</a>&nbsp;&nbsp;
-							<a href="carShow?topage=<%=showpage + 1%>">下一页</a>&nbsp;&nbsp;
-							<a href="carShow?topage=<%=pagecount%>">最后一页</a>
+							href="carShow?topage=<%=showpage - 1%>">上一页</a>&nbsp;&nbsp; <a
+							href="carShow?topage=<%=showpage + 1%>">下一页</a>&nbsp;&nbsp; <a
+							href="carShow?topage=<%=pagecount%>">最后一页</a>
 						</td>
 					</tr>
 				</table>

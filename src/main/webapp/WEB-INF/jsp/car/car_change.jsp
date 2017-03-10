@@ -76,7 +76,19 @@
 	}
 </Script>
 
-<body bgcolor="#ffffff"><jsp:include page="../top.jsp" />
+<body bgcolor="#ffffff">
+	<%
+   		Customer customer = (Customer) session.getAttribute("customer");
+		if (customer != null && "2".equals(customer.getPow())) {
+	%>
+	<jsp:include page="../manager/mtop.jsp" flush="true"></jsp:include>
+	<%
+		}else {
+	%>
+	<jsp:include page="../top.jsp" flush="true"></jsp:include>
+	<%
+	}
+	%>
 	<p align="center">
 		<b>货物信息修改</b>
 	</p>
@@ -174,7 +186,7 @@
 				</td>
 				<td width="36%" height="45">
 					<p align="left">
-						 <select size="1" name="cLicenseStyle">
+						<select size="1" name="cLicenseStyle">
 							<option value="A" selected>A</option>
 							<option value="B">B</option>
 							<option value="C">C</option>
@@ -228,7 +240,7 @@
 					</p>
 				</td>
 			</tr>
-			
+
 			<tr>
 				<td width="20%" height="33">
 					<p align="center">发布人：

@@ -1,94 +1,106 @@
-<%@ page contentType="text/html; charset=gb2312" import="java.sql.*"%>
+<%@ page contentType="text/html; charset=utf-8" import="java.sql.*"%>
 <%@ page import="java.util.List,com.logistics.model.*"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="CSS/style.css">
 <title>Goods_change page</title>
 </head>
 <Script language="javascript">
 	function check() {
 		if (form1.gclass.value == "") {
-			alert("ÇëÌîĞ´»õÎïÀàĞÍ£¡£¡");
+			alert("è¯·å¡«å†™è´§ç‰©ç±»å‹ï¼ï¼");
 			form1.gclass.focus();
 			return false;
 		}
 		if (form1.gname.value == "") {
-			alert("ÇëÌîĞ´»õÎïÃû³Æ£¡£¡£¡");
+			alert("è¯·å¡«å†™è´§ç‰©åç§°ï¼ï¼ï¼");
 			form1.gname.focus();
 			return false;
 		}
 		if (form1.gcount.value == "") {
-			alert("ÇëÌîĞ´»õÎïÊıÁ¿£¡£¡£¡");
+			alert("è¯·å¡«å†™è´§ç‰©æ•°é‡ï¼ï¼ï¼");
 			form1.gcount.focus();
 			return false;
 		}
 		if (form1.gunit.value == "") {
-			alert("ÇëÌîĞ´»õÎïÊıÁ¿µ¥Î»£¡£¡£¡");
+			alert("è¯·å¡«å†™è´§ç‰©æ•°é‡å•ä½ï¼ï¼ï¼");
 			form1.gunit.focus();
 			return false;
 		}
 		if (form1.startProvince.value == "") {
-			alert("ÇëÌîĞ´ÆğÊ¼Ê¡·İ£¡£¡£¡");
+			alert("è¯·å¡«å†™èµ·å§‹çœä»½ï¼ï¼ï¼");
 			form1.startProvince.focue();
 			return false;
 		}
 		if (form1.gstartcity.value == "") {
-			alert("ÇëÌîĞ´ÆğÊ¼³ÇÊĞ£¡£¡£¡");
+			alert("è¯·å¡«å†™èµ·å§‹åŸå¸‚ï¼ï¼ï¼");
 			form1.gstartcity.focue();
 			return false;
 		}
 		if (form1.endProvince.value == "") {
-			alert("ÇëÌîĞ´µÖ´ïÊ¡·İ£¡£¡£¡");
+			alert("è¯·å¡«å†™æŠµè¾¾çœä»½ï¼ï¼ï¼");
 			form1.endProvince.focus();
 			return false;
 		}
 		if (form1.gendcity.value == "") {
-			alert("ÇëÌîĞ´µÖ´ï³ÇÊĞ£¡£¡£¡");
+			alert("è¯·å¡«å†™æŠµè¾¾åŸå¸‚ï¼ï¼ï¼");
 			form1.gendfirm.focus();
 			return false;
 		}
 		if (form1.gtransstyle.value == "") {
-			alert("ÇëÌîĞ´ÔËÊäÀàĞÍ£¡£¡£¡");
+			alert("è¯·å¡«å†™è¿è¾“ç±»å‹ï¼ï¼ï¼");
 			form1.gtransstyle.focue();
 			return false;
 		}
 		if (form1.gtime.value == "") {
-			alert("ÇëÌîĞ´ÔËÊäÊ±¼ä£¡£¡£¡");
+			alert("è¯·å¡«å†™è¿è¾“æ—¶é—´ï¼ï¼ï¼");
 			form1.gtime.focus();
 			return false;
 		}
 		if (form1.glink.value == "") {
-			alert("ÇëÌîĞ´ÁªÏµÈË£¡£¡£¡");
+			alert("è¯·å¡«å†™è”ç³»äººï¼ï¼ï¼");
 			form1.glink.focus();
 			return false;
 		}
 		if (form1.gphone.value == "") {
-			alert("ÇëÌîĞ´ÁªÏµµç»°£¡£¡£¡");
+			alert("è¯·å¡«å†™è”ç³»ç”µè¯ï¼ï¼ï¼");
 			form1.gphone.focus();
 			return false;
 		}
 		if (form1.gremark.value == "") {
-			alert("ÇëÌîĞ´±¸×¢£¡£¡£¡");
+			alert("è¯·å¡«å†™å¤‡æ³¨ï¼ï¼ï¼");
 			form1.gremark.focus();
 			return false;
 		}
 		if (form1.grequest.value == "") {
-			alert("ÇëÌîĞ´ÒªÇó£¡£¡£¡");
+			alert("è¯·å¡«å†™è¦æ±‚ï¼ï¼ï¼");
 			form1.grequest.focus();
 			return false;
 		}
 		if (form1.username.value == "") {
-			alert("ÇëÌîĞ´ÍêÕû·¢²¼ÈËÃû£¡£¡£¡");
+			alert("è¯·å¡«å†™å®Œæ•´å‘å¸ƒäººåï¼ï¼ï¼");
 			form1.grequest.focus();
 			return false;
 		}
 	}
 </Script>
 
-<body bgcolor="#ffffff"><jsp:include page="../top.jsp" />
+<body bgcolor="#ffffff">
+	<%
+   		Customer customer = (Customer) session.getAttribute("customer");
+		if (customer != null && "2".equals(customer.getPow())) {
+	%>
+	<jsp:include page="../manager/mtop.jsp" flush="true"></jsp:include>
+	<%
+		}else {
+	%>
+	<jsp:include page="../top.jsp" flush="true"></jsp:include>
+	<%
+	}
+	%>
 	<p align="center">
-		<b>»õÎïĞÅÏ¢ĞŞ¸Ä</b>
+		<b>è´§ç‰©ä¿¡æ¯ä¿®æ”¹</b>
 	</p>
 	<form method="POST" action="goodsChangeConfig" name="form1">
 		<%
@@ -100,7 +112,7 @@
 			bordercolorlight="#FFFFFF">
 			<tr>
 				<td width="20%" height="43">
-					<p align="center">»õÎïÀàĞÍ£º</p>
+					<p align="center">è´§ç‰©ç±»å‹ï¼š</p>
 				</td>
 				<td width="36%" height="43">
 					<p align="center">
@@ -109,7 +121,7 @@
 					</p>
 				</td>
 				<td width="18%" height="43">
-					<p align="center">»õÎïÃû³Æ£º</p>
+					<p align="center">è´§ç‰©åç§°ï¼š</p>
 				</td>
 				<td width="30%" height="43">
 					<p align="center">
@@ -120,7 +132,7 @@
 			</tr>
 			<tr>
 				<td width="20%" height="42">
-					<p align="center">»õÎïÊıÁ¿£º</p>
+					<p align="center">è´§ç‰©æ•°é‡ï¼š</p>
 				</td>
 				<td width="36%" height="42">
 					<p align="center">
@@ -129,7 +141,7 @@
 					</p>
 				</td>
 				<td width="18%" height="42">
-					<p align="center">ÊıÁ¿µ¥Î»£º</p>
+					<p align="center">æ•°é‡å•ä½ï¼š</p>
 				</td>
 				<td width="30%" height="42">
 					<p align="center">
@@ -140,7 +152,7 @@
 			</tr>
 			<tr>
 				<td width="20%" height="43">
-					<p align="center">ÆğÊ¼Ê¡·İ£º</p>
+					<p align="center">èµ·å§‹çœä»½ï¼š</p>
 				</td>
 				<td width="36%" height="43">
 					<p align="center">
@@ -149,7 +161,7 @@
 					</p>
 				</td>
 				<td width="18%" height="43">
-					<p align="center">ÆğÊ¼³ÇÊĞ£º</p>
+					<p align="center">èµ·å§‹åŸå¸‚ï¼š</p>
 				</td>
 				<td width="30%" height="43">
 					<p align="center">
@@ -160,7 +172,7 @@
 			</tr>
 			<tr>
 				<td width="20%" height="46">
-					<p align="center">µÖ´ïÊ¡·İ£º</p>
+					<p align="center">æŠµè¾¾çœä»½ï¼š</p>
 				</td>
 				<td width="36%" height="46">
 					<p align="center">
@@ -169,7 +181,7 @@
 					</p>
 				</td>
 				<td width="18%" height="46">
-					<p align="center">µÖ´ï³ÇÊĞ£º</p>
+					<p align="center">æŠµè¾¾åŸå¸‚ï¼š</p>
 				</td>
 				<td width="30%" height="46">
 					<p align="center">
@@ -180,20 +192,20 @@
 			</tr>
 			<tr>
 				<td width="20%" height="45">
-					<p align="center">ÔËÊäÀàĞÍ£º</p>
+					<p align="center">è¿è¾“ç±»å‹ï¼š</p>
 				</td>
 				<td width="36%" height="45">
 					<p align="center">
 						&nbsp; <select size="1" name="gtransstyle">
-							<option value="ÆÕÍ¨" selected>ÆÕÍ¨</option>
-							<option value="¿ìËÙ">¿ìËÙ</option>
-							<option value="ÌØ¿ì">ÌØ¿ì</option>
-							<option value="¼Ó¼±">¼Ó¼±</option>
+							<option value="æ™®é€š" selected>æ™®é€š</option>
+							<option value="å¿«é€Ÿ">å¿«é€Ÿ</option>
+							<option value="ç‰¹å¿«">ç‰¹å¿«</option>
+							<option value="åŠ æ€¥">åŠ æ€¥</option>
 						</select>
 					</p>
 				</td>
 				<td width="18%" height="45">
-					<p align="center">ÔËÊäÊ±¼ä£º</p>
+					<p align="center">è¿è¾“æ—¶é—´ï¼š</p>
 				</td>
 				<td width="30%" height="45">
 					<p align="center">
@@ -204,7 +216,7 @@
 			</tr>
 			<tr>
 				<td width="20%" height="45">
-					<p align="center">ÁªÏµµç»°></p>
+					<p align="center">è”ç³»ç”µè¯></p>
 				</td>
 				<td width="36%" height="45">
 					<p align="center">
@@ -213,7 +225,7 @@
 					</p>
 				</td>
 				<td width="18%" height="45">
-					<p align="center">ÁªÏµÈË£º</p>
+					<p align="center">è”ç³»äººï¼š</p>
 				</td>
 				<td width="30%" height="45">
 					<p align="center">
@@ -224,14 +236,14 @@
 			</tr>
 			<tr>
 				<td width="20%" height="40" c>
-					<p align="center">·¢²¼Ê±¼ä£º
+					<p align="center">å‘å¸ƒæ—¶é—´ï¼š
 				</td>
 				<td width="36%" height="40" colspan="3"><input type="text"
 					name="dd" size="20" value="<%=goodsMsg.getIssuedate()%>"></td>
 			</tr>
 			<tr>
 				<td width="20%" height="78">
-					<p align="center">±¸×¢£º</p>
+					<p align="center">å¤‡æ³¨ï¼š</p>
 				</td>
 				<td width="84%" height="78" colspan="3">
 					<p align="left">
@@ -241,7 +253,7 @@
 			</tr>
 			<tr>
 				<td width="20%" height="74">
-					<p align="center">³µÁ¾ÒªÇó£º</p>
+					<p align="center">è½¦è¾†è¦æ±‚ï¼š</p>
 				</td>
 				<td width="84%" height="74" colspan="3">
 					<p align="left">
@@ -251,7 +263,7 @@
 			</tr>
 			<tr>
 				<td width="20%" height="33">
-					<p align="center">·¢²¼ÈË£º
+					<p align="center">å‘å¸ƒäººï¼š
 				</td>
 				<td width="36%" height="33">
 					<p align="center">
@@ -261,19 +273,21 @@
 					<p align="center">ID
 				</td>
 				<td width="20%" height="33">
-					<p align="center"><%=goodsMsg.getId()%><input type="hidden" name="code"
-							value="<%=goodsMsg.getId()%>">
+					<p align="center"><%=goodsMsg.getId()%><input type="hidden"
+							name="code" value="<%=goodsMsg.getId()%>">
 					</p>
 				</td>
 			</tr>
 			<tr>
 				<td width="786" height="40" colspan="4">
 					<p align="center">
-						<input type="submit" name="change" value="ĞŞ¸Ä"
-							onClick="return check()"> <input type="reset" value="ÖØÖÃ">
+						<input type="submit" name="change" value="ä¿®æ”¹"
+							onClick="return check()"> <input type="reset" value="é‡ç½®">
 				</td>
 			</tr>
 		</table>
-		<%}%>
+		<%
+			}
+		%>
 	</form>
 </body>

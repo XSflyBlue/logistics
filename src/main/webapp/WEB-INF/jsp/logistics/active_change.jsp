@@ -1,19 +1,19 @@
-<%@ page contentType="text/html; charset=gb2312"%>
+<%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.List,com.logistics.model.*"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="../CSS/style.css">
-<title>placard_show page</title>
+<title>active_change page</title>
 </head>
 <script language="javascript">
 	function check() {
 		if (form1.title.vlaue == "") {
-			alert("ÇëÌîĞ´±êÌâ£¡£¡£¡");
+			alert("è¯·å¡«å†™æ ‡é¢˜ï¼ï¼ï¼");
 			form1.title.focus();
 		}
 		if (form1.content.value == "") {
-			alert("ÇëÌîĞ´ÄÚÈİ£¡£¡£¡");
+			alert("è¯·å¡«å†™å†…å®¹ï¼ï¼ï¼");
 			form1.content.focus();
 		}
 	}
@@ -24,29 +24,32 @@
 		%>
 <body bgcolor="#ffffff">
 <%
-		Customer customer = (Customer) session.getAttribute("customer");
-		if (customer == null || "1".equals(customer.getPow())) {
+   		Customer customer = (Customer) session.getAttribute("customer");
+		if (customer != null && "2".equals(customer.getPow())) {
+	%>
+	<jsp:include page="../manager/mtop.jsp" flush="true"></jsp:include>
+	<%
+		}else {
 	%>
 	<jsp:include page="../top.jsp" flush="true"></jsp:include>
 	<%
-		}
+	}
 	%>
-<jsp:include page="../top.jsp" />
 	<form method="POST" action="activeChangeConfig" name="form1">
 		<table width="785" height="238" border="1" align="center"
 			cellpadding="0" cellspacing="0" bordercolor="#FFFFFF"
 			bordercolordark="#333333" bordercolorlight="#FFFFFF">
 			<tr>
 				<td width="100%" height="39">
-					<p align="center">ÎïÁ÷ĞÅÏ¢ĞŞ¸Ä
+					<p align="center">ç‰©æµä¿¡æ¯ä¿®æ”¹
 				</td>
 			</tr>
 			<tr>
-				<td width="100%" height="37">±êÌâ£º <input type="text"
+				<td width="100%" height="37">æ ‡é¢˜ï¼š <input type="text"
 					name="title" size="37" value="<%=logistics.getTitle()%>"></td>
 			</tr>
 			<tr>
-				<td width="100%" height="37">* ×¢ÒâÒÔÏÂÄÚÈİ×î¶à¿ÉÒÔĞ´1000¸ö×Ö</td>
+				<td width="100%" height="37">* æ³¨æ„ä»¥ä¸‹å†…å®¹æœ€å¤šå¯ä»¥å†™1000ä¸ªå­—</td>
 			</tr>
 			<tr>
 				<td width="100%" height="36"><textarea rows="10" name="content"
@@ -54,26 +57,26 @@
    <%=logistics.getContent()%></textarea></td>
 			</tr>
 			<tr>
-				<td width="100%" height="16">·¢²¼ÈË: <input type="text"
+				<td width="100%" height="16">å‘å¸ƒäºº: <input type="text"
 					name="author" size="37" value="<%=logistics.getAuthor()%>">
 				</td>
 			</tr>
 			<tr>
-				<td width="100%" height="16">·¢²¼Ê±¼ä: <%=logistics.getIssuedate()%>
+				<td width="100%" height="16">å‘å¸ƒæ—¶é—´: <%=logistics.getIssuedate()%>
 				<input type="hidden"
 					name="issuedate" size="37" value="<%=logistics.getIssuedate()%>">
 				</td>
 			</tr>
 			<tr>
-				<td width="100%" height="16">ÎÄÕÂºÅ: <input type="hidden"
+				<td width="100%" height="16">æ–‡ç« å·: <input type="hidden"
 					name="id" size="37" value="<%=logistics.getId()%>">
 				</td>
 			</tr>
 			<tr>
-				<td width="30%" height="16"><input type="submit" value="ĞŞ¸Ä"
+				<td width="30%" height="16"><input type="submit" value="ä¿®æ”¹"
 					name="B1" onClick="return check()"> <input type="reset"
-					value="ÖØĞ´" name="B2"> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-					<a href="activeShow">·µ»Ø</a></td>
+					value="é‡å†™" name="B2"> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+					<a href="activeShow">è¿”å›</a></td>
 			</tr>
 		</table>
 		<%}%>
